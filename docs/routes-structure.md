@@ -165,8 +165,8 @@ cd apps/web && pnpm dlx shadcn@latest add <nama-komponen>
 
 ```tsx
 // App.tsx
-import { ThemeProvider } from "@/shared/providers/theme-provider"
-import { Toaster } from "@/shared/ui/sonner"
+import { ThemeProvider } from "@/shared/providers/theme-provider";
+import { Toaster } from "@/shared/ui/sonner";
 
 function App({ children }: { children: React.ReactNode }) {
   return (
@@ -174,17 +174,17 @@ function App({ children }: { children: React.ReactNode }) {
       {children}
       <Toaster />
     </ThemeProvider>
-  )
+  );
 }
 ```
 
 ### Pakai Mode Toggle
 
 ```tsx
-import { ModeToggle } from "@/shared/layout/mode-toggle"
+import { ModeToggle } from "@/shared/layout/mode-toggle";
 
 // Letakkan di header/navbar
-<ModeToggle />
+<ModeToggle />;
 ```
 
 ### Menambahkan Route

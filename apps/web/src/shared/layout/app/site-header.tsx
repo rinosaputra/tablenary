@@ -1,0 +1,32 @@
+import { Button } from "@/shared/ui/button";
+import { Separator } from "@/shared/ui/separator";
+import { SidebarTrigger } from "@/shared/ui/sidebar";
+
+import { SearchForm } from "@/shared/layout/app/search-form";
+
+export function SiteHeader() {
+  return (
+    <header className="group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 flex h-12 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear">
+      <div className="flex w-full items-center gap-1 px-4 lg:gap-2 lg:px-6">
+        <SidebarTrigger className="-ml-1" />
+        <Separator
+          orientation="vertical"
+          className="mx-2 data-[orientation=vertical]:h-4"
+        />
+        <SearchForm className="md:w-1/3" />
+        <div className="ml-auto flex items-center gap-2">
+          <Button variant="ghost" size="sm">
+            <a
+              href="https://github.com/shadcn-ui/ui/tree/main/apps/v4/registry/new-york-v4/blocks/sidebar-16"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="dark:text-foreground"
+            >
+              GitHub
+            </a>
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+}

@@ -1,5 +1,5 @@
-import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
-import { NotFoundPage } from "./not-found";
+import { createBrowserRouter, Navigate, Outlet } from "react-router";
+import NotFoundPage from "./not-found";
 
 // --- Placeholder session hook (akan diganti saat auth strategy ditetapkan) ---
 // Gunakan Better Auth cookie session atau custom API endpoint
