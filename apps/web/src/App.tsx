@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./components/ui/button";
+import { Button } from "@/shared/components/ui/button";
 
 const App: React.FC = () => {
   const [count, setCount] = React.useState(0);
