@@ -14,8 +14,12 @@ Project ini menggunakan arsitektur **domain-driven** dengan pemisahan jelas anta
 apps/web/
 ├── src/
 │   ├── shared/                         # Cross-cutting concern
-│   │   ├── components/
-│   │   │   └── ui/                     # shadcn/ui components (hasil: pnpm dlx shadcn@latest init)
+│   │   ├── ui/                         # shadcn/ui components (base-ui preset)
+│   │   ├── providers/                  # Context providers (theme, dll)
+│   │   │   └── theme-provider.tsx
+│   │   ├── layout/                     # Layout components
+│   │   │   └── mode-toggle.tsx
+│   │   ├── hooks/                      # Custom hooks lintas fitur
 │   │   ├── lib/                        # Utilities (cn, helper functions)
 │   │   └── queries/                    # TanStack Query setup (optional)
 │   │
@@ -66,13 +70,28 @@ apps/web/
 
 ## Penjelasan Per Bagian
 
-### `shared/components/ui/` — shadcn/ui
+### `shared/ui/` — shadcn/ui (base-ui preset)
 
 Folder ini diisi oleh komponen yang di-generate dari `pnpm dlx shadcn@latest add <nama>`.
 
-- Path alias: `@/shared/components/ui/` → contoh `@/shared/components/ui/button`
+- Path alias: `@/shared/ui/` → contoh `@/shared/ui/button`
+- Menggunakan preset **base-ui** (`b2BphlJL6`), bukan Radix UI
 - Tidak dimodifikasi langsung; gunakan `pnpm dlx shadcn@latest add` untuk update
-- Berisi: Button, Card, Input, Table, Dialog, dll.
+- Berisi: Button, Card, Input, Table, Dialog, Tooltip, Sonner, dll.
+
+### `shared/providers/` — Context Providers
+
+Berisi provider context lintas fitur:
+
+- `theme-provider.tsx` — context untuk dark mode (light/dark/system)
+- Path alias: `@/shared/providers/`
+
+### `shared/layout/` — Layout Components
+
+Komponen layout siap pakai:
+
+- `mode-toggle.tsx` — tombol toggle dark/light/system
+- Path alias: `@/shared/layout/`
 
 ### `shared/lib/` — Utilities
 
@@ -86,7 +105,7 @@ Berisi fungsi-fungsi helper lintas fitur:
 **Hanya** berfungsi sebagai komposer:
 
 1. Import halaman dari `modules/*/pages/`
-2. Import komponen UI dari `shared/components/ui/`
+2. Import komponen UI dari `shared/ui/`
 3. Import layout khusus dari `routes/_public.tsx` / `_authed.tsx`
 4. Tidak ada logic bisnis (state, fetch, mutation)
 
@@ -139,7 +158,33 @@ touch src/modules/inventory/pages/inventory-page.tsx
 
 ```bash
 cd apps/web && pnpm dlx shadcn@latest add <nama-komponen>
-# Hasilnya otomatis masuk ke shared/components/ui/
+# Hasilnya otomatis masuk ke shared/ui/
+```
+
+### Setup Theme Provider (dark mode)
+
+```tsx
+// App.tsx
+import { ThemeProvider } from "@/shared/providers/theme-provider"
+import { Toaster } from "@/shared/ui/sonner"
+
+function App({ children }: { children: React.ReactNode }) {
+  return (
+    <ThemeProvider defaultTheme="system" storageKey="tablenary-theme">
+      {children}
+      <Toaster />
+    </ThemeProvider>
+  )
+}
+```
+
+### Pakai Mode Toggle
+
+```tsx
+import { ModeToggle } from "@/shared/layout/mode-toggle"
+
+// Letakkan di header/navbar
+<ModeToggle />
 ```
 
 ### Menambahkan Route
