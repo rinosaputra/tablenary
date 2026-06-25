@@ -3,6 +3,7 @@
 ## Ringkasan
 
 Project ini menggunakan arsitektur **domain-driven** dengan pemisahan jelas antara:
+
 - **Routes**: peta URL (tipis, hanya composed dari halaman)
 - **Modules**: fitur domain (auth, dashboard, dll)
 - **Shared**: aset lintas domain (shadcn UI, utils, hooks, queries)
@@ -66,18 +67,24 @@ apps/web/
 ## Penjelasan Per Bagian
 
 ### `shared/components/ui/` — shadcn/ui
+
 Folder ini diisi oleh komponen yang di-generate dari `pnpm dlx shadcn@latest add <nama>`.
+
 - Path alias: `@/shared/components/ui/` → contoh `@/shared/components/ui/button`
 - Tidak dimodifikasi langsung; gunakan `pnpm dlx shadcn@latest add` untuk update
 - Berisi: Button, Card, Input, Table, Dialog, dll.
 
 ### `shared/lib/` — Utilities
+
 Berisi fungsi-fungsi helper lintas fitur:
+
 - `cn()` dari `clsx` + `tailwind-merge`
 - Helper umum: format tanggal, validasi, dll.
 
 ### `routes/` — Peta URL
+
 **Hanya** berfungsi sebagai komposer:
+
 1. Import halaman dari `modules/*/pages/`
 2. Import komponen UI dari `shared/components/ui/`
 3. Import layout khusus dari `routes/_public.tsx` / `_authed.tsx`
@@ -85,15 +92,16 @@ Berisi fungsi-fungsi helper lintas fitur:
 
 #### Pola Naming
 
-| File | Purpose |
-|---|---|
-| `_public.tsx` | Layout wrapper halaman publik (footer, navbar tanpa auth) |
-| `_authed.tsx` | Layout wrapper halaman terlindungi (sidebar, auth check) |
-| `index.tsx` | Route root dalam layout |
-| `login.tsx` | Route `/login` dalam layout publik |
-| `not-found.tsx` | Fallback 404 |
+| File            | Purpose                                                   |
+| --------------- | --------------------------------------------------------- |
+| `_public.tsx`   | Layout wrapper halaman publik (footer, navbar tanpa auth) |
+| `_authed.tsx`   | Layout wrapper halaman terlindungi (sidebar, auth check)  |
+| `index.tsx`     | Route root dalam layout                                   |
+| `login.tsx`     | Route `/login` dalam layout publik                        |
+| `not-found.tsx` | Fallback 404                                              |
 
 ### `modules/` — Domain Features
+
 Setiap folder mewakili **satu fitur domain** yang mandiri.
 Struktur dalam tiap modul mengikuti prinsip **vertical slice**:
 
@@ -113,6 +121,7 @@ modules/<nama>/
 ## Alur Kerja Umum
 
 ### Menambah Fitur Baru (contoh: "inventory")
+
 ```bash
 # 1. Buat modul baru
 mkdir -p src/modules/inventory/{pages,components,hooks,services,queries}
@@ -127,12 +136,14 @@ touch src/modules/inventory/pages/inventory-page.tsx
 ```
 
 ### Menambah Komponen UI (shadcn)
+
 ```bash
 cd apps/web && pnpm dlx shadcn@latest add <nama-komponen>
 # Hasilnya otomatis masuk ke shared/components/ui/
 ```
 
 ### Menambahkan Route
+
 ```tsx
 // routes/_authed.tsx atau routes/_authed/<route>.tsx
 // 1. Import layout
@@ -141,18 +152,23 @@ cd apps/web && pnpm dlx shadcn@latest add <nama-komponen>
 ```
 
 ## Data Fetching Strategy
+
 Menggunakan **TanStack Query** untuk server state:
+
 - Setup: `shared/queries/query-client.ts` (optional, bisa di `main.tsx`)
 - Per-feature hooks: `modules/<nama>/queries/use<Feature>List.ts`
 - Mutations: `modules/<nama>/services/<resource>-service.ts`
 
 ## Routing Conventions
+
 - **Path root**: `apps/web/` — semua route relatif terhadap ini
 - **Protected routes**: gunakan layout `_authed.tsx` dengan auth guard di atas route tree
 - **Public routes**: gunakan layout `_public.tsx` untuk halaman login, register, landing
 
 ## Commit Message Guidelines
+
 Gunakan Conventional Commits scoped ke `web`:
+
 - `feat(web): ...` — menambah fitur baru
 - `chore(web): ...` — setup tools, install deps
 - `style(web): ...` — formatting changes (Prettier, dll)
