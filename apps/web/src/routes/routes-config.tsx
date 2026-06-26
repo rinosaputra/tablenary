@@ -74,12 +74,20 @@ export const router = createBrowserRouter([
         //   },
         // ],
       },
-
-      // --- 404 ---
-      {
-        path: "*",
-        element: <NotFoundPage />,
-      },
     ],
+  },
+
+  // --- APP LAYOUT ---
+  {
+    lazy: async () => ({
+      Component: (await import("@/shared/layout/app/app-layout")).default,
+    }),
+    children: [],
+  },
+
+  // --- 404 ---
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
