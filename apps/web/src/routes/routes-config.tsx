@@ -41,7 +41,10 @@ function AuthedLayout() {
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <PublicLayout />,
+    lazy: async () => ({
+      Component: (await import("@/shared/layout/public/public-layout"))
+        .PublicLayout,
+    }),
     errorElement: <NotFoundPage />,
     children: [
       // Root — redirect otomatis
@@ -49,7 +52,6 @@ export const router = createBrowserRouter([
       //   index: true,
       //   element: <Navigate to="/dashboard" replace />,
       // },
-
       // --- PUBLIC ---
       // {
       //   path: "login",
@@ -59,22 +61,22 @@ export const router = createBrowserRouter([
       //   path: "register",
       //   lazy: () => import("../modules/auth/pages/register-page"),
       // },
-
-      // --- AUTHED ---
-      {
-        element: <AuthedLayout />,
-        // children: [
-        //   {
-        //     path: "dashboard",
-        //     lazy: () => import("../modules/dashboard/pages/dashboard-page"),
-        //   },
-        //   {
-        //     path: "settings",
-        //     lazy: () => import("../modules/settings/pages/settings-page"),
-        //   },
-        // ],
-      },
     ],
+  },
+
+  // --- AUTHED ---
+  {
+    element: <AuthedLayout />,
+    // children: [
+    //   {
+    //     path: "dashboard",
+    //     lazy: () => import("../modules/dashboard/pages/dashboard-page"),
+    //   },
+    //   {
+    //     path: "settings",
+    //     lazy: () => import("../modules/settings/pages/settings-page"),
+    //   },
+    // ],
   },
 
   // --- APP LAYOUT ---
