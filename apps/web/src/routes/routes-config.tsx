@@ -1,41 +1,5 @@
-import { createBrowserRouter, Navigate, Outlet } from "react-router";
+import { createBrowserRouter } from "react-router";
 import NotFoundPage from "./not-found";
-
-// --- Placeholder session hook (akan diganti saat auth strategy ditetapkan) ---
-// Gunakan Better Auth cookie session atau custom API endpoint
-function useIsAuthenticated(): boolean {
-  // TODO: Ganti dengan implementasi auth yang sebenarnya
-  // Contoh: const { data } = useSession(); return !!data;
-  return false;
-}
-
-// === PUBLIC LAYOUT ===
-function PublicLayout() {
-  return (
-    <div className="min-h-screen bg-background text-foreground">
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  );
-}
-
-// === AUTHED LAYOUT ===
-function AuthedLayout() {
-  const isAuthenticated = useIsAuthenticated();
-
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return (
-    <div className="flex min-h-screen">
-      <main className="flex-1">
-        <Outlet />
-      </main>
-    </div>
-  );
-}
 
 // === ROUTES ===
 export const router = createBrowserRouter([
@@ -66,7 +30,10 @@ export const router = createBrowserRouter([
 
   // --- AUTHED ---
   {
-    element: <AuthedLayout />,
+    lazy: async () => ({
+      Component: (await import("@/shared/layout/app/app-layout")).default,
+    }),
+    errorElement: <NotFoundPage />,
     // children: [
     //   {
     //     path: "dashboard",
