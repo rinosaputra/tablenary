@@ -353,7 +353,6 @@ function Rating({
               disabled={disabled}
               readOnly={readOnly}
               precision={precision}
-              icon={Icon}
               Icon={Icon}
               onMouseLeave={() => handleValueHover(0)}
               onValueHover={(value) => handleValueHover(value)}

@@ -61,7 +61,7 @@ export function PublicHeader({ navigation, logoHref = "/", loginHref = "/login",
                 ))}
                 <DropdownMenuSeparator />
                 <a href={loginHref} className="block">
-                  <DropdownMenuItem className="!bg-transparent">
+                  <DropdownMenuItem className="bg-transparent!">
                     <Button className="w-full">Login</Button>
                   </DropdownMenuItem>
                 </a>

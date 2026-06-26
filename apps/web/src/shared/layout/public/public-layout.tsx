@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { Outlet } from "react-router";
 
 import { cn } from "@/shared/lib/utils";

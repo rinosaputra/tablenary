@@ -11,20 +11,13 @@ export const router = createBrowserRouter([
     }),
     errorElement: <NotFoundPage />,
     children: [
-      // Root — redirect otomatis
-      // {
-      //   index: true,
-      //   element: <Navigate to="/dashboard" replace />,
-      // },
-      // --- PUBLIC ---
-      // {
-      //   path: "login",
-      //   lazy: () => import("../modules/auth/pages/login-page"),
-      // },
-      // {
-      //   path: "register",
-      //   lazy: () => import("../modules/auth/pages/register-page"),
-      // },
+      {
+        index: true,
+        lazy: async () => ({
+          Component: (await import("@/modules/landing/pages/index-page"))
+            .default,
+        }),
+      },
     ],
   },
 
@@ -35,14 +28,14 @@ export const router = createBrowserRouter([
     }),
     errorElement: <NotFoundPage />,
     // children: [
-    //   {
-    //     path: "dashboard",
-    //     lazy: () => import("../modules/dashboard/pages/dashboard-page"),
-    //   },
-    //   {
-    //     path: "settings",
-    //     lazy: () => import("../modules/settings/pages/settings-page"),
-    //   },
+    // {
+    //   path: "login",
+    //   lazy: () => import("@/modules/auth/pages/login-page"),
+    // },
+    // {
+    //   path: "register",
+    //   lazy: () => import("@/modules/auth/pages/register-page"),
+    // },
     // ],
   },
 
