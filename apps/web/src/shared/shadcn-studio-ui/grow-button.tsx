@@ -9,16 +9,14 @@ import { cn } from '@/shared/lib/utils'
 interface GrowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: VariantProps<typeof buttonVariants>['size']
   children?: React.ReactNode
-  asChild?: boolean
 }
 
 function PrimaryGrowButton(props: GrowButtonProps) {
-  const { children, asChild = false, size, className, ...rest } = props
+  const { children, size, className, ...rest } = props
 
   return (
     <Button
       size={size}
-      asChild={asChild}
       className={cn(
         'rounded-lg duration-200 ease-in-out active:-translate-x-0.5 active:translate-y-0.5',
 
@@ -44,15 +42,14 @@ function PrimaryGrowButton(props: GrowButtonProps) {
 }
 
 function SecondaryGrowButton(props: GrowButtonProps) {
-  const { children, size, asChild = false, className, ...rest } = props
+  const { children, size, className, ...rest } = props
 
   return (
     <Button
       variant='secondary'
       size={size}
-      asChild={asChild}
       className={cn(
-        'text-primary cursor-pointer rounded-lg border border-[color-mix(in_oklab,_var(--primary)_30%,_var(--card))] bg-[color-mix(in_oklab,_var(--primary)_10%,_var(--card))] hover:bg-[color-mix(in_oklab,_var(--primary)_15%,_var(--card))] active:scale-95',
+        'text-primary cursor-pointer rounded-lg border border-[color-mix(in_oklab,var(--primary)_30%,var(--card))] bg-[color-mix(in_oklab,var(--primary)_10%,var(--card))] hover:bg-[color-mix(in_oklab,_var(--primary)_15%,_var(--card))] active:scale-95',
 
         // size-based adjustments
         size === 'lg' && 'text-base has-[>svg]:px-6',
