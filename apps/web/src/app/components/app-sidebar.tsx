@@ -8,7 +8,7 @@ import { NavMain } from "@/app/components/nav-main";
 import { NavProjects } from "@/app/components/nav-projects";
 import { NavSecondary } from "@/app/components/nav-secondary";
 import { NavUser } from "@/app/components/nav-user";
-import { appSidebarData } from "@/app/components/sidebar-data";
+import { appSidebarData } from "@/app/data/sidebar-data";
 import {
   Sidebar,
   SidebarContent,
@@ -29,7 +29,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<Link to={paths.app.$.index.$buildPath()} />}>
+            <SidebarMenuButton size="lg" render={<Link to={paths.app.$.index.$buildPath({})} />}>
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                 <Command className="size-4" />
               </div>
