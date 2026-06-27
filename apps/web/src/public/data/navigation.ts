@@ -1,6 +1,6 @@
 import { paths } from "@/routes/route-definitions";
 
-import type { NavItem } from "../layout/types";
+import type { NavItem } from "../types";
 
 /**
  * Navigation items rendered in the public header.

@@ -2,9 +2,10 @@ import { Outlet } from "react-router";
 
 import { cn } from "@/shared/lib/utils";
 
-import { PublicHeader } from "./public-header";
-import { PublicFooter } from "./public-footer";
-import type { PublicLayoutProps } from "./types";
+import { PublicHeader } from "../components/public-header";
+import { PublicFooter } from "../components/public-footer";
+import type { PublicLayoutProps } from "../types";
+import { publicNavigation } from "../data/navigation";
 
 /**
  * PublicLayout — wrapper for all public-facing pages.
@@ -17,7 +18,7 @@ export function PublicLayout({
 }: PublicLayoutProps) {
   return (
     <div className={cn("flex min-h-screen flex-col", className)}>
-      {!hideHeader && <PublicHeader />}
+      {!hideHeader && <PublicHeader navigation={publicNavigation} />}
       <main className="flex-1">
         <Outlet />
       </main>

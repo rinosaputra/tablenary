@@ -13,7 +13,7 @@ import {
 import { Separator } from "@/shared/ui/separator";
 import { TablenaryLogo } from "@/shared/ui/tablenary-logo";
 
-import type { PublicHeaderNavProps } from "./types";
+import type { PublicHeaderNavProps } from "../types";
 import { cn } from "@/shared/lib/utils";
 import { paths } from "@/routes/route-definitions";
 
@@ -47,11 +47,14 @@ export function PublicHeader({
             </Button>
           </Link>
           <DropdownMenu>
-            <DropdownMenuTrigger className="md:hidden">
-              <Button variant="outline" size="icon">
-                <MenuIcon />
-                <span className="sr-only">Menu</span>
-              </Button>
+            <DropdownMenuTrigger
+              className="md:hidden"
+              render={(props) => (
+                <Button variant="outline" size="icon" {...props} />
+              )}
+            >
+              <MenuIcon />
+              <span className="sr-only">Menu</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
               <DropdownMenuGroup>
