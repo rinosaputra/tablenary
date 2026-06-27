@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/shared/ui/card";
 import { cn } from "@/shared/lib/utils";
 
 import { featuresData } from "../data/features";
-import type { Feature } from "../types";
 
 /**
  * FeaturesSection — adapted from shadcn-studio/blocks/features-section-01.
@@ -30,17 +29,15 @@ export function FeaturesSection() {
             variant="outline"
             className="rounded-lg text-base shadow-none has-[>svg]:px-6"
             size="lg"
-            asChild
+            render={(props) => <a href="#features" {...props} />}
           >
-            <a href="#features">
-              See all features
-              <ArrowRightIcon />
-            </a>
+            See all features
+            <ArrowRightIcon />
           </Button>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuresData.map((feature: Feature, index) => (
+          {featuresData.map((feature, index) => (
             <Card
               key={index}
               className={cn(

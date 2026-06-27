@@ -38,8 +38,12 @@ export function HeroSection() {
           terpisah. Semua berjalan lokal di browser Anda.
         </p>
 
-        <Button size="lg" variant="default" asChild>
-          <a href="#features">Coba Sekarang</a>
+        <Button
+          size="lg"
+          variant="default"
+          render={(props) => <a href="#features" {...props} />}
+        >
+          Coba Sekarang
         </Button>
       </div>
 

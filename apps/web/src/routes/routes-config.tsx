@@ -2,11 +2,13 @@ import { createBrowserRouter } from "react-router";
 import NotFoundPage from "./not-found";
 import { paths } from "./route-definitions";
 
+console.log("/", paths.public.$path());
+
 // === ROUTES ===
 export const router = createBrowserRouter([
   // --- PUBLIC ---
   {
-    path: paths.public.$path(),
+    path: paths.public.$path() ?? "/",
     lazy: async () => ({
       Component: (await import("@/public/layout/public-layout"))
         .PublicLayout,

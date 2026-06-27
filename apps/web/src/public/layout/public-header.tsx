@@ -19,8 +19,8 @@ import { paths } from "@/routes/route-definitions";
 
 export function PublicHeader({
   navigation,
-  logoHref = paths.public.$.index.$buildPath(),
-  loginHref = paths.public.$.login.$buildPath(),
+  logoHref = paths.public.$.index.$buildPath({}),
+  loginHref = paths.public.$.login.$buildPath({}),
   className,
 }: PublicHeaderNavProps) {
   return (

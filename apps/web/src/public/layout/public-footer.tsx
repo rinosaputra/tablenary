@@ -51,7 +51,7 @@ export function PublicFooter({
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-16 md:py-24 lg:grid-cols-5">
         {/* Brand col */}
         <div className="flex flex-col items-start gap-4 lg:col-span-2">
-          <Link to={paths.public.$.index.$buildPath()}>
+          <Link to={paths.public.$.index.$buildPath({})}>
             <TablenaryLogo />
           </Link>
           <p className="text-muted-foreground text-balance">
