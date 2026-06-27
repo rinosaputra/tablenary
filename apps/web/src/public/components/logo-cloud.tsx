@@ -1,54 +1,141 @@
-import { Card, CardContent } from "@/shared/ui/card";
-import { Building2Icon } from "lucide-react";
+import { Badge } from "@/shared/ui/badge";
+import { Button } from "@/shared/ui/button";
+import { Orbiting } from "@/shared/shadcn-studio-ui/orbiting";
+import { MotionPreset } from "@/shared/shadcn-studio-ui/motion-preset";
 
-/**
- * LogoCloud — adapted from shadcn-studio/blocks/logo-cloud-01.
- * Shows partner/trusted brands. Uses a placeholder list until real logos
- * are available in /public/logos/.
- */
-const partners = [
-  { name: "Brew Co.", Icon: Building2Icon },
-  { name: "Bistro Group", Icon: Building2Icon },
-  { name: "Gourmet Hub", Icon: Building2Icon },
-  { name: "Kitchen Pro", Icon: Building2Icon },
-  { name: "Seafood House", Icon: Building2Icon },
-  { name: "Sweet Spot", Icon: Building2Icon },
+type Logos = {
+  image: string;
+  alt: string;
+  size: string;
+};
+
+interface LogoCloudProps {
+  logos?: Logos[];
+}
+
+const defaultLogos: Logos[] = [
+  // Placeholder — ganti dengan logo asli di /public/logos/ atau URL eksternal
+  { image: "/logos/brand-1.png", alt: "Brand 1", size: "size-16" },
+  { image: "/logos/brand-2.png", alt: "Brand 2", size: "size-16" },
+  { image: "/logos/brand-3.png", alt: "Brand 3", size: "size-12" },
+  { image: "/logos/brand-4.png", alt: "Brand 4", size: "size-12" },
+  { image: "/logos/brand-5.png", alt: "Brand 5", size: "size-16" },
+  { image: "/logos/brand-6.png", alt: "Brand 6", size: "size-12" },
+  { image: "/logos/brand-7.png", alt: "Brand 7", size: "size-12" },
+  { image: "/logos/brand-8.png", alt: "Brand 8", size: "size-12" },
 ];
 
-export function LogoCloud() {
+export function LogoCloud({ logos = defaultLogos }: LogoCloudProps = {}) {
   return (
-    <section className="bg-muted py-8 sm:py-16 lg:py-24">
+    <section className="py-8 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
-          <h2 className="text-2xl font-semibold md:text-3xl lg:text-4xl">
-            <span>A thriving</span>{" "}
-            <span className="relative z-1">
-              community of restaurants
-              <span className="bg-primary absolute bottom-1 left-0 -z-1 h-px w-full"></span>
-            </span>{" "}
-            <span>driving innovation</span>
-          </h2>
-          <p className="text-muted-foreground text-xl">
-            Proudly partnering with top brands to drive success.
-          </p>
-        </div>
+        <div className="flex items-center justify-between gap-12 gap-y-32 max-lg:flex-col sm:gap-16 lg:gap-24">
+          <div className="space-y-4">
+            <MotionPreset
+              fade
+              slide={{ direction: "up", offset: 50 }}
+              blur
+              transition={{ duration: 0.5 }}
+            >
+              <Badge
+                variant="outline"
+                className="text-sm font-normal"
+              >
+                A Legacy of Trust
+              </Badge>
+            </MotionPreset>
 
-        <Card className="py-14 shadow-lg">
-          <CardContent className="px-14">
-            <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8 max-sm:flex-col">
-              {partners.map((partner) => (
-                <div
-                  key={partner.name}
-                  className="text-muted-foreground flex items-center gap-2"
+            <MotionPreset
+              component="h2"
+              className="text-2xl font-semibold md:text-3xl lg:text-4xl"
+              fade
+              slide={{ direction: "up", offset: 50 }}
+              blur
+              transition={{ duration: 0.5 }}
+              delay={0.3}
+            >
+              Helping visionary brands scale & innovate
+            </MotionPreset>
+
+            <MotionPreset
+              component="p"
+              className="text-muted-foreground mb-12 text-xl sm:mb-16 lg:mb-24"
+              fade
+              blur
+              slide={{ direction: "up", offset: 50 }}
+              transition={{ duration: 0.5 }}
+              delay={0.6}
+            >
+              We power some of the world&apos;s most successful companies,
+              helping them and exceed expectations.
+            </MotionPreset>
+
+            <MotionPreset
+              fade
+              blur
+              slide={{ direction: "up", offset: 50 }}
+              transition={{ duration: 0.5 }}
+              delay={0.9}
+            >
+              <div className="bg-primary/10 flex items-center justify-between gap-4 overflow-hidden rounded-lg px-6 py-4 max-sm:flex-col">
+                <p className="text-primary text-xl font-medium">
+                  Are you the next one?
+                </p>
+                <MotionPreset
+                  fade
+                  blur
+                  slide={{ direction: "right", offset: 20 }}
+                  transition={{ duration: 0.4 }}
+                  delay={1.2}
                 >
-                  <partner.Icon className="size-7" />
-                  <span className="text-lg font-semibold">{partner.name}</span>
-                </div>
-              ))}
+                  <Button className="text-base max-sm:w-full" size="lg">
+                    Join Now
+                  </Button>
+                </MotionPreset>
+              </div>
+            </MotionPreset>
+          </div>
+
+          <MotionPreset
+            className="max-sm:scale-75"
+            fade
+            blur
+            zoom={{ initialScale: 0.8 }}
+            transition={{ duration: 0.8 }}
+            delay={0.5}
+          >
+            <div className="relative flex size-96 flex-col items-center justify-center">
+              <Orbiting radius={180} dashed={true} dashedGap={12}>
+                {logos.slice(0, 6).map((logo, index) => (
+                  <img
+                    key={index}
+                    src={logo.image}
+                    alt={logo.alt}
+                    className={logo.size}
+                  />
+                ))}
+              </Orbiting>
+              <Orbiting
+                radius={110}
+                reverse
+                speed={2}
+                dashed={true}
+                dashedGap={12}
+              >
+                {logos.slice(6).map((logo, index) => (
+                  <img
+                    key={index}
+                    src={logo.image}
+                    alt={logo.alt}
+                    className={logo.size}
+                  />
+                ))}
+              </Orbiting>
+
+              {/* Center logo — ganti dengan Logo Tablenary ketika siap */}
             </div>
-          </CardContent>
-        </Card>
+          </MotionPreset>
+        </div>
       </div>
     </section>
   );

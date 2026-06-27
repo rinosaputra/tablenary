@@ -135,3 +135,18 @@
     cursor: pointer;
   }
 }
+
+@layer utilities {
+  @keyframes orbit {
+    from {
+      transform: rotate(var(--angle)) translateY(var(--radius)) rotate(calc(var(--angle) * -1));
+    }
+    to {
+      transform: rotate(calc(var(--angle) + 360deg)) translateY(var(--radius)) rotate(calc((var(--angle) + 360deg) * -1));
+    }
+  }
+
+  .animate-orbit {
+    animation: orbit calc(var(--duration, 20s) * 1s) linear infinite;
+  }
+}
