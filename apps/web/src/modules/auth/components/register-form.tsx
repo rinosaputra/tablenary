@@ -99,7 +99,7 @@ export function RegisterForm({
               </Field>
               <FieldDescription className="text-center">
                 Already have an account?{" "}
-                <Link to={paths.public.$.login.$buildPath()} className="text-blue-600 hover:underline">
+                <Link to={paths.public.$.login.$buildPath({})} className="text-blue-600 hover:underline">
                   Sign in
                 </Link>
               </FieldDescription>

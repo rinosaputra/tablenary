@@ -27,16 +27,21 @@ export function CTASection() {
             </div>
             <div className="flex flex-wrap items-center gap-4 max-md:w-full max-md:flex-col md:justify-end">
               <Button
+                nativeButton={false}
                 size="lg"
                 variant="default"
                 className="min-w-45"
                 render={(props) => (
-                  <Link to={paths.public.$.register.$buildPath({})} {...props} />
+                  <Link
+                    to={paths.public.$.register.$buildPath({})}
+                    {...props}
+                  />
                 )}
               >
                 Mulai Gratis
               </Button>
               <Button
+                nativeButton={false}
                 size="lg"
                 variant="outline"
                 className="min-w-45"

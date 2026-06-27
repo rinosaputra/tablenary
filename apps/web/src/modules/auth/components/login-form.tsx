@@ -90,7 +90,7 @@ export function LoginForm({
               </Field>
               <FieldDescription className="text-center">
                 Don't have an account?{" "}
-                <Link to={paths.public.$.register.$buildPath()} className="text-blue-600 hover:underline">
+                <Link to={paths.public.$.register.$buildPath({})} className="text-blue-600 hover:underline">
                   Sign up
                 </Link>
               </FieldDescription>

@@ -3,14 +3,14 @@
  */
 
 import {
-  DiscordIcon,
-  GitHubIcon,
-  type LucideIcon,
-} from "lucide-react";
-import { XIcon } from "lucide-react";
+  IconBrandDiscord,
+  IconBrandGithub,
+  IconBrandX,
+  type TablerIcon,
+} from "@tabler/icons-react";
 
 export interface CommunityPlatform {
-  icon: LucideIcon;
+  icon: TablerIcon;
   name: string;
   description: string;
   href: string;
@@ -21,7 +21,7 @@ export interface CommunityPlatform {
 
 export const communityPlatformsData: CommunityPlatform[] = [
   {
-    icon: DiscordIcon,
+    icon: IconBrandDiscord,
     name: "Discord",
     description:
       "Diskusi real-time dengan komunitas Tablenary. Dapatkan bantuan cepat, berbagi tips, dan update terbaru dari tim pengembangan.",
@@ -31,7 +31,7 @@ export const communityPlatformsData: CommunityPlatform[] = [
     bgAccent: "bg-violet-100 dark:bg-violet-500/20",
   },
   {
-    icon: GitHubIcon,
+    icon: IconBrandGithub,
     name: "GitHub",
     description:
       "Laporkan bug, ajukan fitur baru, lihat kode sumber, dan berkontribusi pada project open-source Tablenary.",
@@ -41,7 +41,7 @@ export const communityPlatformsData: CommunityPlatform[] = [
     bgAccent: "bg-gray-100 dark:bg-gray-500/20",
   },
   {
-    icon: XIcon,
+    icon: IconBrandX,
     name: "Twitter / X",
     description:
       "Ikuti update resmi Tablenary, tips & tricks, pengumuman fitur baru, dan showcase hasil karya komunitas.",

@@ -17,9 +17,14 @@ function NotFoundPage() {
         <p className="mb-5">
           Kami tidak dapat menemukan halaman yang Anda cari
         </p>
-        <Button size="lg" className="rounded-lg text-base" render={(props) => (
-          <Link to={paths.public.$.index.$buildPath({})} {...props} />
-        )}>
+        <Button
+          nativeButton={false}
+          size="lg"
+          className="rounded-lg text-base"
+          render={(props) => (
+            <Link to={paths.public.$.index.$buildPath({})} {...props} />
+          )}
+        >
           Kembali ke Beranda
         </Button>
       </div>

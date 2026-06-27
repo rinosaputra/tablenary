@@ -31,6 +31,7 @@ export function FeaturesPage() {
           </p>
           <div className="mt-2 flex flex-wrap gap-3">
             <Button
+              nativeButton={false}
               size="lg"
               render={(props) => (
                 <a href="#detail" {...props}>
@@ -41,13 +42,11 @@ export function FeaturesPage() {
               Mulai Gratis
             </Button>
             <Button
+              nativeButton={false}
               size="lg"
               variant="outline"
               render={(props) => (
-                <a
-                  href={paths.public.$.docs.$buildPath({})}
-                  {...props}
-                >
+                <a href={paths.public.$.docs.$buildPath({})} {...props}>
                   Dokumentasi
                 </a>
               )}

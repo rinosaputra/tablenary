@@ -26,6 +26,7 @@ export function FeaturesSection() {
             functionality.
           </p>
           <Button
+            nativeButton={false}
             variant="outline"
             className="rounded-lg text-base shadow-none has-[>svg]:px-6"
             size="lg"

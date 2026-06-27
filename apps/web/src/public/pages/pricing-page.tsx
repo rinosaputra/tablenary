@@ -12,7 +12,7 @@ import { CTASection } from "../components/cta-section";
 export function PricingPage() {
   return (
     <>
-      <section className="flex justify-center bg-gradient-to-b from-background to-muted/30 py-14 sm:py-20 lg:py-28">
+      <section className="flex justify-center bg-linear-to-b from-background to-muted/30 py-14 sm:py-20 lg:py-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 text-center sm:px-6 lg:px-8">
           <Badge variant="outline" className="bg-primary/5">
             💰 Harga Transparan
@@ -26,6 +26,7 @@ export function PricingPage() {
           </p>
           <div className="mt-2 flex flex-wrap gap-3">
             <Button
+              nativeButton={false}
               size="lg"
               render={(props) => (
                 <a href="#plans" {...props}>

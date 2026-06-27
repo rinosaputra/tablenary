@@ -39,6 +39,7 @@ export function HeroSection() {
         </p>
 
         <Button
+          nativeButton={false}
           size="lg"
           variant="default"
           render={(props) => <a href="#features" {...props} />}

@@ -26,12 +26,7 @@ export function FAQSection() {
           </p>
         </div>
 
-        <Accordion
-          type="single"
-          collapsible
-          className="mx-auto w-full max-w-3xl"
-          defaultValue="item-0"
-        >
+        <Accordion className="mx-auto w-full max-w-3xl">
           {faqData.map((item, index) => (
             <AccordionItem key={index} value={`item-${index}`}>
               <AccordionTrigger className="text-lg">
