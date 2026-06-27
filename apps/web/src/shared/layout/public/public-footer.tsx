@@ -53,8 +53,8 @@ export function PublicFooter({
             <TablenaryLogo />
           </a>
           <p className="text-muted-foreground text-balance">
-            Simplify your data management with Tablenary — an open-source platform
-            for building and organizing dynamic tables effortlessly.
+            Simplify your data management with Tablenary — an open-source
+            platform for building and organizing dynamic tables effortlessly.
           </p>
           <div className="flex items-center gap-4">
             <a
@@ -152,7 +152,8 @@ export function PublicFooter({
           &copy; {currentYear} {copyrightText}. All rights reserved.
         </p>
         <Badge variant="outline">
-          <ShieldCheckIcon className="size-4.5! text-green-600" /> Secure &amp; Open Source
+          <ShieldCheckIcon className="size-4.5! text-green-600" /> Secure &amp;
+          Open Source
         </Badge>
       </div>
     </footer>

@@ -25,13 +25,13 @@
 
 ## HeroSection
 
-| Field | Value |
-|-------|-------|
-| **Headline** | `Toolkit data tanpa coding. Bangun tabel, kumpulkan via form, visualisasikan dengan chart, ekspor ke PDF — semua offline, data di IndexedDB.` |
-| **Subheadline** | `No-code data toolkit. Online hanya untuk pengguna berbayar.` |
-| **Badge** | `Offline-first` |
-| **CTA Button** | `Coba Sekarang` → `#features` (scroll, bukan redirect) |
-| **Image** | `/placeholder.svg` (placeholder dulu) |
+| Field           | Value                                                                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Headline**    | `Toolkit data tanpa coding. Bangun tabel, kumpulkan via form, visualisasikan dengan chart, ekspor ke PDF — semua offline, data di IndexedDB.` |
+| **Subheadline** | `No-code data toolkit. Online hanya untuk pengguna berbayar.`                                                                                 |
+| **Badge**       | `Offline-first`                                                                                                                               |
+| **CTA Button**  | `Coba Sekarang` → `#features` (scroll, bukan redirect)                                                                                        |
+| **Image**       | `/placeholder.svg` (placeholder dulu)                                                                                                         |
 
 ## LogoCloud
 
@@ -50,10 +50,10 @@
 
 ## PricingComponent
 
-| Tier | Price | Features |
-|------|-------|----------|
-| **Free** | Rp 0 | Semua builder kecuali PDF Builder |
-| **Pro** | Rp 199rb/bln (annual only) | Semua builder termasuk PDF + Cloud sync |
+| Tier     | Price                      | Features                                   |
+| -------- | -------------------------- | ------------------------------------------ |
+| **Free** | Rp 0                       | Semua builder kecuali PDF Builder          |
+| **Pro**  | Rp 199rb/bln (annual only) | Semua builder termasuk PDF + Cloud sync    |
 | **Team** | Rp 599rb/bln (annual only) | Pro + Real-time collaboration (multi-user) |
 
 **Annual only** (toggle bulanan/tahunan tidak dipakai — langsung tampilkan harga tahunan).

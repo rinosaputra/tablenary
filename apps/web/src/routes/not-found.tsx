@@ -1,6 +1,7 @@
 import { Outlet, useRouteError } from "react-router";
 
 function NotFoundPage() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const error = useRouteError();
 
   return (

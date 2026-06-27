@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
@@ -715,5 +713,6 @@ export {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
+  // eslint-disable-next-line react-refresh/only-export-components -- This is a utility component, not a React component.
   useSidebar,
 };

@@ -18,6 +18,7 @@ We are discussing the `public` layout structure at `apps/web/src/shared/layout/p
 ## Routes Configuration (`routes-config.tsx`)
 
 Current routes setup uses `createBrowserRouter` with:
+
 1. **`PublicLayout`** — wraps public routes (`/`, `/login`, `/register`)
 2. **`AuthedLayout`** — guards authenticated routes, redirects to `/login` if not authenticated
 3. **`AppLayout`** — sidebar+header layout for dashboard, settings, etc.
@@ -56,9 +57,11 @@ function PublicLayout() {
 6. **`shared/layout/public/index.ts`** — Barrel export
 
 ### Dependencies Installed
+
 - `@tabler/icons-react@3.44.0` — social media icons (GitHub, X/Twitter, Instagram, YouTube)
 
 ### Key Decisions
+
 - **Not using `asChild`**: The base-ui preset uses `render` prop, not `asChild`. All links are wrapped in regular `<a>` tags around the shadcn components.
 - **Login button wraps in `<a>`**: The `Button` component renders a `<button>` so we wrap it in `<a>` for navigation rather than passing unsupported props.
 - **Responsive**: Matches original pattern — desktop nav is visible, mobile collapses into dropdown.
@@ -82,6 +85,7 @@ import { PublicLayout } from "@/shared/layout/public";
 ```
 
 ### Files Referenced
+
 - [routes-config.tsx](../../../../../apps/web/src/routes/routes-config.tsx)
 - [auth-layout.tsx](../../../../../apps/web/src/shared/layout/auth/auth-layout.tsx)
 - [app-layout.tsx](../../../../../apps/web/src/shared/layout/app/app-layout.tsx)
@@ -89,15 +93,19 @@ import { PublicLayout } from "@/shared/layout/public";
 - [footer-component-05](../../../../../../../shadcn-ui-studio/nextjs/components/shadcn-studio/blocks/footer-component-05/footer-component-05.tsx) (source reference)
 
 ### Reference: `AuthPageLayout` (`modules/auth/layout/auth-page-layout.tsx`)
+
 Already exists as a reusable wrapper for auth pages:
+
 ```tsx
 export function AuthPageLayout({ title, subtitle, children, className }) {
   // renders title + subtitle + children
 }
 ```
+
 This could potentially be adapted or extended for public page templates too.
 
 ## Files Referenced
+
 - [routes-config.tsx](../../../../../apps/web/src/routes/routes-config.tsx)
 - [auth-layout.tsx](../../../../../apps/web/src/shared/layout/auth/auth-layout.tsx)
 - [app-layout.tsx](../../../../../apps/web/src/shared/layout/app/app-layout.tsx)

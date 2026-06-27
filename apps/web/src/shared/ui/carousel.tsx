@@ -95,6 +95,7 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- we want to update state when the carousel is initialized and when the selected slide changes
     onSelect(api);
     api.on("reInit", onSelect);
     api.on("select", onSelect);
@@ -238,5 +239,6 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  // eslint-disable-next-line react-refresh/only-export-components -- This is a utility component, not a React component.
   useCarousel,
 };

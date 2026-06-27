@@ -1,8 +1,4 @@
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/shared/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
 import { Card, CardContent } from "@/shared/ui/card";
 import {
   Carousel,
@@ -60,10 +56,7 @@ export function Testimonials() {
         <div className="relative max-w-196 sm:w-1/2 lg:w-2/3">
           <CarouselContent className="sm:-ml-6">
             {testimonialsData.map((testimonial, index) => (
-              <CarouselItem
-                key={index}
-                className="sm:pl-6 lg:basis-1/2"
-              >
+              <CarouselItem key={index} className="sm:pl-6 lg:basis-1/2">
                 <Card className="hover:border-primary h-full transition-colors duration-300">
                   <CardContent className="space-y-5">
                     <div className="flex items-center gap-3">

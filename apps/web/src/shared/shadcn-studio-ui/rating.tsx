@@ -96,7 +96,7 @@ function RatingItem({
       className: cn(
         "fill-muted-foreground/20 stroke-muted-foreground/10",
         variant === "yellow" &&
-          "fill-amber-600/30 stroke-amber-600/10 dark:fill-amber-400/30 dark:stroke-amber-400/10"
+          "fill-amber-600/30 stroke-amber-600/10 dark:fill-amber-400/30 dark:stroke-amber-400/10",
       ),
       "aria-hidden": "true",
     });
@@ -121,7 +121,7 @@ function RatingItem({
 
       return base + Math.ceil(fillRatio / precision) * precision;
     },
-    [precision, point]
+    [precision, point],
   );
 
   const handleMouseMove = React.useCallback(
@@ -129,7 +129,7 @@ function RatingItem({
       if (!isInteractive) return;
       onValueHover(getRatingPoint(event));
     },
-    [isInteractive, onValueHover, getRatingPoint]
+    [isInteractive, onValueHover, getRatingPoint],
   );
 
   const handleClick = React.useCallback(
@@ -143,7 +143,7 @@ function RatingItem({
       // Prevent focus on click by blurring the element
       event.currentTarget.blur();
     },
-    [isInteractive, value, onValueChange, onValueHover, getRatingPoint]
+    [isInteractive, value, onValueChange, onValueHover, getRatingPoint],
   );
 
   return (
@@ -164,7 +164,7 @@ function RatingItem({
             "pointer-events-none absolute top-0 left-0 overflow-hidden",
           isInteractive && "cursor-pointer hover:scale-105",
           disabled && "cursor-not-allowed opacity-50",
-          className
+          className,
         )}
         style={{ width: partialPointWidth }}
         {...props}
@@ -221,13 +221,13 @@ function Rating({
 
       onValueChange?.(newValue);
     },
-    [isControlled, onValueChange]
+    [isControlled, onValueChange],
   );
 
   const handleValueHover = React.useCallback((point: number) => {
     setHoveredValue(point);
     onValueHover?.(point);
-  }, []);
+  }, [onValueHover]);
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -282,18 +282,21 @@ function Rating({
           break;
       }
     },
-    [isInteractive, value, max, precision, handleValueChange]
+    [isInteractive, value, max, precision, handleValueChange],
   );
 
-  const handleMouseDown = React.useCallback((event: React.MouseEvent<HTMLDivElement>) => {
-    // Prevent focus on mouse click
-    event.preventDefault();
-  }, []);
+  const handleMouseDown = React.useCallback(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      // Prevent focus on mouse click
+      event.preventDefault();
+    },
+    [],
+  );
 
   const stars = React.useMemo(() => {
     if (precision <= 0 || precision > 1) {
       console.warn(
-        "Rating: precision must be greater than 0 and less than or equal to 1"
+        "Rating: precision must be greater than 0 and less than or equal to 1",
       );
 
       return [];
@@ -303,7 +306,7 @@ function Rating({
       key: index,
       points: Array.from(
         { length: Math.floor(1 / precision) },
-        (_, i) => index + precision * (i + 1)
+        (_, i) => index + precision * (i + 1),
       ),
     }));
   }, [max, precision]);
@@ -320,7 +323,7 @@ function Rating({
       className={cn(
         "focus-visible:ring-ring/50 flex gap-px focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
         disabled && "opacity-50",
-        className
+        className,
       )}
       aria-label={readOnly ? `${value} stars` : "Rating"}
       aria-valuemin={0}
@@ -336,7 +339,7 @@ function Rating({
           className={cn(
             "relative",
             isInteractive && "transition-transform hover:scale-110",
-            disabled && "cursor-not-allowed"
+            disabled && "cursor-not-allowed",
           )}
           aria-disabled={disabled}
           aria-hidden={readOnly}

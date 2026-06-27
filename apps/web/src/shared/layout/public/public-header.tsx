@@ -15,7 +15,12 @@ import { TablenaryLogo } from "@/shared/ui/tablenary-logo";
 import type { PublicHeaderNavProps } from "./types";
 import { cn } from "@/shared/lib/utils";
 
-export function PublicHeader({ navigation, logoHref = "/", loginHref = "/login", className }: PublicHeaderNavProps) {
+export function PublicHeader({
+  navigation,
+  logoHref = "/",
+  loginHref = "/login",
+  className,
+}: PublicHeaderNavProps) {
   return (
     <header className={cn("sticky top-0 z-50 bg-background", className)}>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-4 py-7 sm:px-6">
@@ -26,11 +31,7 @@ export function PublicHeader({ navigation, logoHref = "/", loginHref = "/login",
         {/* Desktop nav */}
         <nav className="text-muted-foreground hidden items-center gap-6 font-medium md:flex">
           {navigation?.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              className="hover:text-primary"
-            >
+            <a key={index} href={item.href} className="hover:text-primary">
               {item.title}
             </a>
           ))}

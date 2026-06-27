@@ -1,0 +1,85 @@
+
+E:\tablenary\apps\web\src\modules\auth\layout\auth-page-layout.tsx
+  14:3  error  'children' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\tablenary\apps\web\src\routes\not-found.tsx
+  4:9  error  'error' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+E:\tablenary\apps\web\src\shared\hooks\use-mobile.ts
+  16:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+E:\tablenary\apps\web\src\shared\hooks\use-mobile.ts:16:5
+  14 |     };
+  15 |     mql.addEventListener("change", onChange);
+> 16 |     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+     |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  17 |     return () => mql.removeEventListener("change", onChange);
+  18 |   }, []);
+  19 |  react-hooks/set-state-in-effect
+
+E:\tablenary\apps\web\src\shared\providers\theme-provider.tsx
+  70:25  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\shadcn-studio-ui\motion-preset.tsx
+  39:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  42:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  45:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\tablenary\apps\web\src\shared\shadcn-studio-ui\rating.tsx
+  230:6  warning  React Hook React.useCallback has a missing dependency: 'onValueHover'. Either include it or remove the dependency array. If 'onValueHover' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+E:\tablenary\apps\web\src\shared\ui\badge.tsx
+  52:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\button-group.tsx
+  86:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\button.tsx
+  58:18  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\carousel.tsx
+   98:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+E:\tablenary\apps\web\src\shared\ui\carousel.tsx:98:5
+   96 |   React.useEffect(() => {
+   97 |     if (!api) return;
+>  98 |     onSelect(api);
+      |     ^^^^^^^^ Avoid calling setState() directly within an effect
+   99 |     api.on("reInit", onSelect);
+  100 |     api.on("select", onSelect);
+  101 |  react-hooks/set-state-in-effect
+  241:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\combobox.tsx
+  297:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\direction.tsx
+  3:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\navigation-menu.tsx
+  169:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\sidebar.tsx
+  718:3  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\tabs.tsx
+  80:52  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+E:\tablenary\apps\web\src\shared\ui\toggle.tsx
+  45:18  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+Γ£û 20 problems (19 errors, 1 warning)
+

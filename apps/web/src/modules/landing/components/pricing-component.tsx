@@ -32,7 +32,8 @@ export function PricingComponent() {
               Pilih Paket Sesuai Kebutuhan
             </h2>
             <p className="text-muted-foreground text-xl">
-              Mulai gratis, upgrade kapan saja. Semua harga adalah harga tahunan.
+              Mulai gratis, upgrade kapan saja. Semua harga adalah harga
+              tahunan.
             </p>
           </div>
         </div>
@@ -74,14 +75,9 @@ export function PricingComponent() {
 
                 <ul className="space-y-3">
                   {plan.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3"
-                    >
+                    <li key={feature} className="flex items-start gap-3">
                       <CheckIcon className="text-primary mt-0.5 size-5 shrink-0" />
-                      <span className="text-muted-foreground">
-                        {feature}
-                      </span>
+                      <span className="text-muted-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>

@@ -33,9 +33,9 @@ export function HeroSection() {
         </h1>
 
         <p className="text-muted-foreground text-balance max-w-2xl">
-          Tablenary membantu Anda bertransisi dari Excel/Google Sheets ke aplikasi
-          data lengkap. Tanpa instalasi server, tanpa database terpisah.
-          Semua berjalan lokal di browser Anda.
+          Tablenary membantu Anda bertransisi dari Excel/Google Sheets ke
+          aplikasi data lengkap. Tanpa instalasi server, tanpa database
+          terpisah. Semua berjalan lokal di browser Anda.
         </p>
 
         <Button size="lg" variant="default" asChild>

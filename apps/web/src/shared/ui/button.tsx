@@ -55,4 +55,5 @@ function Button({
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- This is a utility component, not a React component.
 export { Button, buttonVariants };

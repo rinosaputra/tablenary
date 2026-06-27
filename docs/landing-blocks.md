@@ -7,16 +7,16 @@
 
 Source code di shadcn-ui-studio awalnya menggunakan **Next.js (App Router, `'use client'`)** dan Radix UI/Base UI primitives. Untuk proyek Tablenary (Vite + React 19 + React Router), block-block perlu diadaptasi:
 
-| Aspek | Next.js | Vite + React (Tablenary) |
-|-------|---------|-------------------------|
-| `'use client'` directive | Wajib di Next.js App Router | **Hapus**, tidak ada efek di Vite |
-| `@/components/ui/...` | Path alias Next.js | Ganti ke `@/shared/ui/...` |
-| `@/lib/utils` | Path alias Next.js | Ganti ke `@/shared/lib/utils` |
-| `@/components/shadcn-studio/...` | Internal shadcn-studio | Ganti sesuai struktur lokal |
-| `asChild` (Radix) | Tidak dipakai (preset base-ui pakai `render`) | Wrap dengan `<a>` tags manual |
-| `next/image` / `next/link` | Next.js | Ganti ke `<img>` dan `<a>` |
-| `framer-motion` / `motion` | Untuk animasi | `motion/react` (Framer Motion v11+) |
-| `next/headers`, server actions | Server-side | **Hapus**, pindah ke client-only |
+| Aspek                            | Next.js                                       | Vite + React (Tablenary)            |
+| -------------------------------- | --------------------------------------------- | ----------------------------------- |
+| `'use client'` directive         | Wajib di Next.js App Router                   | **Hapus**, tidak ada efek di Vite   |
+| `@/components/ui/...`            | Path alias Next.js                            | Ganti ke `@/shared/ui/...`          |
+| `@/lib/utils`                    | Path alias Next.js                            | Ganti ke `@/shared/lib/utils`       |
+| `@/components/shadcn-studio/...` | Internal shadcn-studio                        | Ganti sesuai struktur lokal         |
+| `asChild` (Radix)                | Tidak dipakai (preset base-ui pakai `render`) | Wrap dengan `<a>` tags manual       |
+| `next/image` / `next/link`       | Next.js                                       | Ganti ke `<img>` dan `<a>`          |
+| `framer-motion` / `motion`       | Untuk animasi                                 | `motion/react` (Framer Motion v11+) |
+| `next/headers`, server actions   | Server-side                                   | **Hapus**, pindah ke client-only    |
 
 ## Rekomendasi Struktur Folder
 
@@ -50,21 +50,21 @@ modules/landing/
 
 ### Blok yang Kompatibel (komponen sudah ada di `shared/ui/`)
 
-| Block | File Sumber | Komponen UI yang Dipakai |
-|-------|-------------|--------------------------|
-| hero-section-01 | `blocks/hero-section-01/hero-section-01.tsx` | `Badge`, `Button` |
-| features-section-01 | `blocks/features-section-01/features-section-01.tsx` | `Avatar`, `Button`, `Card` |
+| Block                | File Sumber                                            | Komponen UI yang Dipakai                |
+| -------------------- | ------------------------------------------------------ | --------------------------------------- |
+| hero-section-01      | `blocks/hero-section-01/hero-section-01.tsx`           | `Badge`, `Button`                       |
+| features-section-01  | `blocks/features-section-01/features-section-01.tsx`   | `Avatar`, `Button`, `Card`              |
 | pricing-component-01 | `blocks/pricing-component-01/pricing-component-01.tsx` | `Button`, `Card`, `Switch`, `Separator` |
-| cta-section-01 | `blocks/cta-section-01/cta-section-01.tsx` | `Card` |
-| logo-cloud-01 | `blocks/logo-cloud-01/logo-cloud-01.tsx` | `Card` |
-| faq-component-01 | `blocks/faq-component-01/faq-component-01.tsx` | `Accordion` |
+| cta-section-01       | `blocks/cta-section-01/cta-section-01.tsx`             | `Card`                                  |
+| logo-cloud-01        | `blocks/logo-cloud-01/logo-cloud-01.tsx`               | `Card`                                  |
+| faq-component-01     | `blocks/faq-component-01/faq-component-01.tsx`         | `Accordion`                             |
 
 ### Blok yang Butuh Komponen Tambahan
 
-| Block | Komponen UI Tambahan | Status |
-|-------|---------------------|--------|
-| testimonials-component-01 | Rating (`rating.tsx`) | Sudah disalin & adaptasi |
-| bento-grid-01 | MotionPreset (animasi) | Sudah disalin & adaptasi, `motion` ter-install |
+| Block                     | Komponen UI Tambahan   | Status                                         |
+| ------------------------- | ---------------------- | ---------------------------------------------- |
+| testimonials-component-01 | Rating (`rating.tsx`)  | Sudah disalin & adaptasi                       |
+| bento-grid-01             | MotionPreset (animasi) | Sudah disalin & adaptasi, `motion` ter-install |
 
 ## Komponen yang Sudah Disalin (shadcn-studio -> shared/shadcn-studio-ui/)
 
@@ -73,6 +73,7 @@ modules/landing/
 **Sumber:** `E:\shadcn-ui-studio\nextjs\components\ui\rating.tsx`  
 **Target:** `apps/web/src/shared/shadcn-studio-ui/rating.tsx`  
 **Perubahan adaptasi:**
+
 - Hapus `'use client';`
 - Ganti `import { cn } from '@/lib/utils'` -> `@/shared/lib/utils`
 - Tetap menggunakan `class-variance-authority` (sudah ada) + `lucide-react` (sudah ada)
@@ -83,6 +84,7 @@ modules/landing/
 **Sumber:** `E:\shadcn-ui-studio\nextjs\components\ui\motion-preset.tsx`  
 **Target:** `apps/web/src/shared/shadcn-studio-ui/motion-preset.tsx`  
 **Perubahan adaptasi:**
+
 - Hapus `'use client';`
 - Menggunakan `motion/react` (import dari `motion` package, baru diinstal via `pnpm add motion`)
 - Mendukung fade, slide, blur, zoom animations dengan in-view triggering
@@ -116,14 +118,15 @@ import { MotionPreset } from "@/shared/shadcn-studio-ui";
 
 ## Dependencies Baru yang Diinstal
 
-| Package | Versi | Kegunaan |
-|---------|-------|---------|
-| `@tabler/icons-react` | 3.44.0 | Social icons (GitHub, X, Instagram, YouTube) |
-| `motion` | 12.42.0 | Animasi untuk MotionPreset (Framer Motion v11+) |
+| Package               | Versi   | Kegunaan                                        |
+| --------------------- | ------- | ----------------------------------------------- |
+| `@tabler/icons-react` | 3.44.0  | Social icons (GitHub, X, Instagram, YouTube)    |
+| `motion`              | 12.42.0 | Animasi untuk MotionPreset (Framer Motion v11+) |
 
 ## Image Assets
 
 Logo cloud dan testimonials pakai CDN eksternal `https://cdn.shadcnstudio.com/...`. Untuk Tablenary:
+
 - Logo cloud: gunakan logo SVG brand partner
 - Testimonial avatar: gunakan placeholder lokal `/placeholder.svg` atau `<AvatarFallback>`
 
@@ -182,7 +185,7 @@ Untuk setiap file yang dicopy dari shadcn-ui-studio:
 
 ## Blok yang Sudah Dipakai
 
-| Komponen | Sumber | Status |
-|----------|--------|--------|
+| Komponen       | Sumber                | Status               |
+| -------------- | --------------------- | -------------------- |
 | `PublicHeader` | `navbar-component-05` | Sudah diimplementasi |
 | `PublicFooter` | `footer-component-05` | Sudah diimplementasi |

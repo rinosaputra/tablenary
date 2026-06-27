@@ -1,5 +1,3 @@
-"use client";
-
 import { Toggle as TogglePrimitive } from "@base-ui/react/toggle";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -42,4 +40,5 @@ function Toggle({
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- This is a utility component, not a React component.
 export { Toggle, toggleVariants };

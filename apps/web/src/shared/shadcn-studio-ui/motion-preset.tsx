@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any  */
 import * as React from "react";
 
 import {
@@ -80,9 +81,8 @@ function MotionPreset({
   }
 
   if (slide) {
-    const offset = slide === true ? 100 : slide.offset ?? 100;
-    const direction =
-      slide === true ? "left" : slide.direction ?? "left";
+    const offset = slide === true ? 100 : (slide.offset ?? 100);
+    const direction = slide === true ? "left" : (slide.direction ?? "left");
     const axis = direction === "up" || direction === "down" ? "y" : "x";
 
     hiddenVariant[axis] =
@@ -91,18 +91,16 @@ function MotionPreset({
   }
 
   if (fade) {
-    hiddenVariant.opacity = fade === true ? 0 : fade.initialOpacity ?? 0;
-    visibleVariant.opacity = fade === true ? 1 : fade.opacity ?? 1;
+    hiddenVariant.opacity = fade === true ? 0 : (fade.initialOpacity ?? 0);
+    visibleVariant.opacity = fade === true ? 1 : (fade.opacity ?? 1);
   }
 
   if (zoom) {
-    hiddenVariant.scale =
-      zoom === true ? 0.5 : zoom.initialScale ?? 0.5;
-    visibleVariant.scale = zoom === true ? 1 : zoom.scale ?? 1;
+    hiddenVariant.scale = zoom === true ? 0.5 : (zoom.initialScale ?? 0.5);
+    visibleVariant.scale = zoom === true ? 1 : (zoom.scale ?? 1);
   }
 
-  const MotionComponent =
-    motionComponents[component] || motion.div;
+  const MotionComponent = motionComponents[component] || motion.div;
 
   return (
     <AnimatePresence>
