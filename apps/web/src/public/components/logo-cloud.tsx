@@ -104,19 +104,19 @@ export function LogoCloud({ logos = defaultLogos }: LogoCloudProps = {}) {
             transition={{ duration: 0.8 }}
             delay={0.5}
           >
-            <div className="relative flex size-96 flex-col items-center justify-center">
-              <Orbiting radius={180} dashed={true} dashedGap={12}>
+            <div className="relative flex size-[28rem] flex-col items-center justify-center">
+              <Orbiting radius={200} dashed={true} dashedGap={12}>
                 {logos.slice(0, 6).map((logo, index) => (
                   <img
                     key={index}
                     src={logo.image}
                     alt={logo.alt}
-                    className={logo.size}
+                    className={`${logo.size} invert opacity-70 hover:opacity-100 transition-opacity`}
                   />
                 ))}
               </Orbiting>
               <Orbiting
-                radius={110}
+                radius={130}
                 reverse
                 speed={2}
                 dashed={true}
@@ -127,12 +127,17 @@ export function LogoCloud({ logos = defaultLogos }: LogoCloudProps = {}) {
                     key={index}
                     src={logo.image}
                     alt={logo.alt}
-                    className={logo.size}
+                    className={`${logo.size} invert opacity-70 hover:opacity-100 transition-opacity`}
                   />
                 ))}
               </Orbiting>
 
-              {/* Center logo — ganti dengan Logo Tablenary ketika siap */}
+              {/* Center logo — placeholder: Tablenary brand */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex size-24 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                <span className="text-base font-bold text-white">
+                  Tablenary
+                </span>
+              </div>
             </div>
           </MotionPreset>
         </div>

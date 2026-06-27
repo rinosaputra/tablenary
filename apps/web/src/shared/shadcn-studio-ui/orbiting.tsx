@@ -62,8 +62,8 @@ export function Orbiting({
             style={
               {
                 '--duration': calculatedDuration,
-                '--radius': radius,
-                '--angle': angle
+                '--radius': `${radius}px`,
+                '--angle': `${angle}deg`
               } as React.CSSProperties
             }
             className={cn(
