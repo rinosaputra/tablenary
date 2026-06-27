@@ -1,10 +1,10 @@
 import { Card, CardContent } from "@/shared/ui/card";
-import { AppleIcon, SmartphoneIcon } from "lucide-react";
+import { Button } from "@/shared/ui/button";
 
 /**
  * CTASection — adapted from shadcn-studio/blocks/cta-section-01.
  * Final call-to-action encouraging users to start with Tablenary.
- * Uses local lucide icons for store badges (replace with brand SVGs when available).
+ * Two buttons: Get Started (register) + Sign In (login). No fake store badges.
  */
 export function CTASection() {
   return (
@@ -14,40 +14,21 @@ export function CTASection() {
           <CardContent className="flex flex-wrap items-center justify-between gap-8 px-8 sm:flex-nowrap sm:px-16 lg:px-24">
             <div className="max-w-xs lg:max-w-lg">
               <h2 className="mb-4 text-3xl font-bold">
-                Start managing your restaurant today
+                Siap kelola data Anda tanpa coding?
               </h2>
               <p className="text-muted-foreground text-lg font-medium">
-                With a variety of powerful tools, you can effortlessly run your
-                restaurant without any technical skills. Build your next chapter
-                with Tablenary.
+                Mulai gratis hari ini. Tanpa kartu kredit. Bangun tabel, form,
+                chart, dan PDF Anda sendiri dalam hitungan menit — semua offline
+                dan tersimpan aman di IndexedDB.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-6 max-md:w-full max-md:flex-col md:justify-end">
-              <a
-                href="/register"
-                className="bg-card-foreground text-card flex w-[200px] items-center gap-4 rounded-md px-6 py-3"
-              >
-                <AppleIcon className="size-8.5" />
-                <div className="flex flex-col items-start">
-                  <p className="text-xs leading-4">Sign up on the</p>
-                  <p className="text-base leading-6 font-medium opacity-90">
-                    Web App
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="/register"
-                className="bg-card-foreground text-card flex w-[200px] items-center gap-4 rounded-md px-6 py-3"
-              >
-                <SmartphoneIcon className="size-8.5" />
-                <div className="flex flex-col items-start">
-                  <p className="text-xs leading-4">Get it on</p>
-                  <p className="text-base leading-6 font-medium opacity-90">
-                    Mobile
-                  </p>
-                </div>
-              </a>
+            <div className="flex flex-wrap items-center gap-4 max-md:w-full max-md:flex-col md:justify-end">
+              <Button size="lg" variant="default" asChild className="min-w-45">
+                <a href="/register">Mulai Gratis</a>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="min-w-45">
+                <a href="/login">Masuk</a>
+              </Button>
             </div>
           </CardContent>
         </Card>
