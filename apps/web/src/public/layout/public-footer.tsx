@@ -12,30 +12,12 @@ import { Separator } from "@/shared/ui/separator";
 import { TablenaryLogo } from "@/shared/ui/tablenary-logo";
 import { paths } from "@/routes/route-definitions";
 
-interface FooterSection {
-  title: string;
-  links: { label: string; href: string }[];
-}
-
-const RESOURCES: FooterSection["links"] = [
-  { label: "Documentation", href: "/docs" },
-  { label: "Getting Started", href: "/docs/getting-started" },
-  { label: "API Reference", href: "/api" },
-  { label: "Changelog", href: "/changelog" },
-];
-
-const SUPPORT: FooterSection["links"] = [
-  { label: "Support", href: "/support" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "Community", href: "/community" },
-];
-
-const LEGAL: FooterSection["links"] = [
-  { label: "Terms & Conditions", href: "/terms" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Cookie Policy", href: "/cookies" },
-];
+import {
+  footerResources,
+  footerSupport,
+  footerLegal,
+  type FooterLink,
+} from "../data/footer-links";
 
 interface PublicFooterProps {
   copyrightText?: string;
@@ -96,9 +78,9 @@ export function PublicFooter({
 
         {/* Resources */}
         <div className="flex flex-col gap-5">
-          <div className="text-lg font-medium">Resources</div>
+          <div className="text-lg font-medium">{footerResources.title}</div>
           <ul className="text-muted-foreground space-y-3">
-            {RESOURCES.map((link, i) => (
+            {footerResources.links.map((link: FooterLink, i: number) => (
               <li key={i}>
                 <a
                   href={link.href}
@@ -113,9 +95,9 @@ export function PublicFooter({
 
         {/* Support */}
         <div className="flex flex-col gap-5">
-          <div className="text-lg font-medium">Help & Support</div>
+          <div className="text-lg font-medium">{footerSupport.title}</div>
           <ul className="text-muted-foreground space-y-3">
-            {SUPPORT.map((link, i) => (
+            {footerSupport.links.map((link: FooterLink, i: number) => (
               <li key={i}>
                 <a
                   href={link.href}
@@ -130,9 +112,9 @@ export function PublicFooter({
 
         {/* Legal */}
         <div className="flex flex-col gap-5">
-          <div className="text-lg font-medium">Legal</div>
+          <div className="text-lg font-medium">{footerLegal.title}</div>
           <ul className="text-muted-foreground space-y-3">
-            {LEGAL.map((link, i) => (
+            {footerLegal.links.map((link: FooterLink, i: number) => (
               <li key={i}>
                 <a
                   href={link.href}
