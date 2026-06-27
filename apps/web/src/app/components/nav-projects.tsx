@@ -19,7 +19,7 @@ import {
   useSidebar,
 } from "@/shared/ui/sidebar";
 
-import type { NavProjectsProps } from "./types";
+import type { NavProjectsProps } from "../types";
 
 const TriggerProjects = () => (
   <SidebarMenuButton size="sm">

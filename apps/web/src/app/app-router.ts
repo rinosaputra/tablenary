@@ -8,8 +8,9 @@
  * @see ../../routes/route-definitions.ts
  */
 import { paths } from "@/routes/route-definitions";
+import type { RouteObject } from "react-router";
 
-export const appRouterChildren = [
+export const appRouterChildren: RouteObject[] = [
   {
     index: true,
     lazy: async () => ({

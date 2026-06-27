@@ -17,7 +17,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/shared/ui/sidebar";
-import type { NavMainProps } from "./types";
+import type { NavMainProps } from "../types";
 
 export function NavMain({ items }: NavMainProps) {
   return (

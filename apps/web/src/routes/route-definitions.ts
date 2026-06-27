@@ -11,7 +11,7 @@
  *   - Pathless wrappers use `path: ""` to share params across siblings.
  */
 import { publicRoutes } from "@/public/public-routes";
-import { appRoutes } from "@/app/layout/app-routes";
+import { appRoutes } from "@/app/app-routes";
 
 // Flat export for ergonomic consumption: `paths.public.login.$buildPath()`.
 export const paths = {

@@ -2,7 +2,7 @@ import { Button } from "@/shared/ui/button";
 import { Separator } from "@/shared/ui/separator";
 import { SidebarTrigger } from "@/shared/ui/sidebar";
 
-import { SearchForm } from "@/app/layout/search-form";
+import { SearchForm } from "@/app/components/search-form";
 
 export function SiteHeader() {
   return (

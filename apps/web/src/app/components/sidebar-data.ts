@@ -9,7 +9,7 @@ import {
   Settings2,
   SquareTerminal,
 } from "lucide-react";
-import type { AppSidebarData } from "./types";
+import type { AppSidebarData } from "../types";
 
 export const appSidebarData: AppSidebarData = {
   user: {

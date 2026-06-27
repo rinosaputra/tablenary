@@ -1,6 +1,6 @@
 import { SidebarInput } from "@/shared/ui/sidebar";
 
-import type { SearchFormProps } from "./types";
+import type { SearchFormProps } from "../types";
 
 export function SearchForm({ ...props }: SearchFormProps) {
   return (

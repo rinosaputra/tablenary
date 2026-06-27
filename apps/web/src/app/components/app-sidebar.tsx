@@ -4,11 +4,11 @@ import * as React from "react";
 import { Command } from "lucide-react";
 import { Link } from "react-router";
 
-import { NavMain } from "@/app/layout/nav-main";
-import { NavProjects } from "@/app/layout/nav-projects";
-import { NavSecondary } from "@/app/layout/nav-secondary";
-import { NavUser } from "@/app/layout/nav-user";
-import { appSidebarData } from "@/app/layout/sidebar-data";
+import { NavMain } from "@/app/components/nav-main";
+import { NavProjects } from "@/app/components/nav-projects";
+import { NavSecondary } from "@/app/components/nav-secondary";
+import { NavUser } from "@/app/components/nav-user";
+import { appSidebarData } from "@/app/components/sidebar-data";
 import {
   Sidebar,
   SidebarContent,

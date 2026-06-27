@@ -24,7 +24,7 @@ import {
   useSidebar,
 } from "@/shared/ui/sidebar";
 
-import type { NavUserProps } from "./types";
+import type { NavUserProps } from "../types";
 
 export function NavUser({ user }: NavUserProps) {
   const { isMobile } = useSidebar();

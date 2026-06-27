@@ -7,7 +7,7 @@ import {
 } from "@/shared/ui/sidebar";
 import { Link } from "react-router";
 
-import type { NavSecondaryProps } from "./types";
+import type { NavSecondaryProps } from "../types";
 
 export function NavSecondary({ items, ...props }: NavSecondaryProps) {
   return (

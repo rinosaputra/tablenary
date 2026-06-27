@@ -2,8 +2,8 @@ import { Outlet } from "react-router";
 
 import { SidebarInset, SidebarProvider } from "@/shared/ui/sidebar";
 
-import { AppSidebar } from "@/app/layout/app-sidebar";
-import { SiteHeader } from "@/app/layout/site-header";
+import { AppSidebar } from "@/app/components/app-sidebar";
+import { SiteHeader } from "@/app/components/site-header";
 
 function AppLayout() {
   return (
