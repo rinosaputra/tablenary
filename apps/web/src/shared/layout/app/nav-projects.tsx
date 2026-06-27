@@ -1,4 +1,5 @@
 import { Folder, Forward, MoreHorizontal, Trash2 } from "lucide-react";
+import { Link } from "react-router";
 
 import {
   DropdownMenu,
@@ -42,7 +43,7 @@ export function NavProjects({ projects }: NavProjectsProps) {
             const Icon = item.icon;
             return (
               <SidebarMenuItem key={item.name}>
-                <SidebarMenuButton render={<a href={item.url} />}>
+                <SidebarMenuButton render={<Link to={item.url} />}>
                   <Icon />
                   <span>{item.name}</span>
                 </SidebarMenuButton>

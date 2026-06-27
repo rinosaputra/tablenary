@@ -5,6 +5,7 @@ import {
   IconBrandX,
   IconBrandYoutube,
 } from "@tabler/icons-react";
+import { Link } from "react-router";
 
 import { Badge } from "@/shared/ui/badge";
 import { Separator } from "@/shared/ui/separator";
@@ -49,9 +50,9 @@ export function PublicFooter({
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-16 md:py-24 lg:grid-cols-5">
         {/* Brand col */}
         <div className="flex flex-col items-start gap-4 lg:col-span-2">
-          <a href="/">
+          <Link to="/">
             <TablenaryLogo />
-          </a>
+          </Link>
           <p className="text-muted-foreground text-balance">
             Simplify your data management with Tablenary — an open-source
             platform for building and organizing dynamic tables effortlessly.

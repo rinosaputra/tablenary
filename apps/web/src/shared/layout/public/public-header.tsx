@@ -1,4 +1,5 @@
 import { MenuIcon } from "lucide-react";
+import { Link } from "react-router";
 
 import { Button } from "@/shared/ui/button";
 import {
@@ -24,26 +25,26 @@ export function PublicHeader({
   return (
     <header className={cn("sticky top-0 z-50 bg-background", className)}>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-4 py-7 sm:px-6">
-        <a href={logoHref}>
+        <Link to={logoHref}>
           <TablenaryLogo />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="text-muted-foreground hidden items-center gap-6 font-medium md:flex">
           {navigation?.map((item, index) => (
-            <a key={index} href={item.href} className="hover:text-primary">
+            <Link key={index} to={item.href} className="hover:text-primary">
               {item.title}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Right side: Login + Mobile menu */}
         <div className="flex items-center gap-4">
-          <a href={loginHref} className="max-md:hidden">
+          <Link to={loginHref} className="max-md:hidden">
             <Button className="rounded-lg text-base" size="lg">
               Login
             </Button>
-          </a>
+          </Link>
           <DropdownMenu>
             <DropdownMenuTrigger className="md:hidden">
               <Button variant="outline" size="icon">
@@ -55,17 +56,17 @@ export function PublicHeader({
               <DropdownMenuGroup>
                 {navigation?.map((item, index) => (
                   <DropdownMenuItem key={index}>
-                    <a href={item.href} className="w-full">
+                    <Link to={item.href} className="w-full">
                       {item.title}
-                    </a>
+                    </Link>
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator />
-                <a href={loginHref} className="block">
+                <Link to={loginHref} className="block">
                   <DropdownMenuItem className="bg-transparent!">
                     <Button className="w-full">Login</Button>
                   </DropdownMenuItem>
-                </a>
+                </Link>
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>

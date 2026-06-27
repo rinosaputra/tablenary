@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import { Link } from "react-router";
+
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
@@ -87,9 +89,9 @@ export function LoginForm({
               </Field>
               <FieldDescription className="text-center">
                 Don't have an account?{" "}
-                <a href="#" className="text-blue-600 hover:underline">
+                <Link to="#" className="text-blue-600 hover:underline">
                   Sign up
-                </a>
+                </Link>
               </FieldDescription>
             </FieldGroup>
           </form>
@@ -104,13 +106,13 @@ export function LoginForm({
       </Card>
       <FieldDescription className="px-6 text-center">
         By clicking continue, you agree to our{" "}
-        <a href="#" className="underline">
+        <Link to="#" className="underline">
           Terms of Service
-        </a>{" "}
+        </Link>{" "}
         and{" "}
-        <a href="#" className="underline">
+        <Link to="#" className="underline">
           Privacy Policy
-        </a>
+        </Link>
         .
       </FieldDescription>
     </div>

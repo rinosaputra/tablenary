@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import { Card, CardContent } from "@/shared/ui/card";
 import { Button } from "@/shared/ui/button";
 
@@ -23,11 +25,11 @@ export function CTASection() {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4 max-md:w-full max-md:flex-col md:justify-end">
-              <Button size="lg" variant="default" asChild className="min-w-45">
-                <a href="/register">Mulai Gratis</a>
+              <Button size="lg" variant="default" className="min-w-45" asChild>
+                <Link to="/register">Mulai Gratis</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="min-w-45">
-                <a href="/login">Masuk</a>
+              <Button size="lg" variant="outline" className="min-w-45" asChild>
+                <Link to="/login">Masuk</Link>
               </Button>
             </div>
           </CardContent>

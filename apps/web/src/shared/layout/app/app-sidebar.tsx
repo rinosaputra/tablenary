@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Command } from "lucide-react";
+import { Link } from "react-router";
 
 import { NavMain } from "@/shared/layout/app/nav-main";
 import { NavProjects } from "@/shared/layout/app/nav-projects";
@@ -27,7 +28,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<a href="#" />}>
+            <SidebarMenuButton size="lg" render={<Link to="#" />}>
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                 <Command className="size-4" />
               </div>
