@@ -8,7 +8,7 @@ export const router = createBrowserRouter([
   {
     path: paths.public.$path(),
     lazy: async () => ({
-      Component: (await import("@/shared/layout/public/public-layout"))
+      Component: (await import("@/public/layout/public-layout"))
         .PublicLayout,
     }),
     errorElement: <NotFoundPage />,
@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         lazy: async () => ({
-          Component: (await import("@/modules/landing/pages/index-page"))
+          Component: (await import("@/public/pages/index-page"))
             .default,
         }),
       },
@@ -40,13 +40,13 @@ export const router = createBrowserRouter([
   {
     path: paths.app.$path(),
     lazy: async () => ({
-      Component: (await import("@/shared/layout/app/app-layout")).default,
+      Component: (await import("@/app/layout/app-layout")).default,
     }),
     children: [
       {
         index: true,
         lazy: async () => ({
-          Component: (await import("@/modules/landing/pages/index-page"))
+          Component: (await import("@/public/pages/index-page"))
             .default,
         }),
       },
@@ -56,14 +56,14 @@ export const router = createBrowserRouter([
           {
             index: true,
             lazy: async () => ({
-              Component: (await import("@/modules/landing/pages/index-page"))
+              Component: (await import("@/public/pages/index-page"))
                 .default,
             }),
           },
           {
             path: paths.app.$.settings.$.profile.$path({ relative: true }),
             lazy: async () => ({
-              Component: (await import("@/modules/landing/pages/index-page"))
+              Component: (await import("@/public/pages/index-page"))
                 .default,
             }),
           },
