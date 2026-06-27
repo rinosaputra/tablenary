@@ -14,15 +14,60 @@ interface LogoCloudProps {
 }
 
 const defaultLogos: Logos[] = [
-  // Placeholder — ganti dengan logo asli di /public/logos/ atau URL eksternal
-  { image: "/logos/brand-1.png", alt: "Brand 1", size: "size-16" },
-  { image: "/logos/brand-2.png", alt: "Brand 2", size: "size-16" },
-  { image: "/logos/brand-3.png", alt: "Brand 3", size: "size-12" },
-  { image: "/logos/brand-4.png", alt: "Brand 4", size: "size-12" },
-  { image: "/logos/brand-5.png", alt: "Brand 5", size: "size-16" },
-  { image: "/logos/brand-6.png", alt: "Brand 6", size: "size-12" },
-  { image: "/logos/brand-7.png", alt: "Brand 7", size: "size-12" },
-  { image: "/logos/brand-8.png", alt: "Brand 8", size: "size-12" },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/webflow-icon-circle.png",
+    alt: "Webflow",
+    size: "size-15",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/netflix-icon-circle.png",
+    alt: "Netflix",
+    size: "size-12",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/stackoverflow-icon-circle.png",
+    alt: "Stack Overflow",
+    size: "size-12.5",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/shopify-icon-circle.png",
+    alt: "Shopify",
+    size: "size-11",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/mailchimp-icon-circle.png",
+    alt: "Mailchimp",
+    size: "size-9.5",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/paypal-icon-circle.png",
+    alt: "PayPal",
+    size: "size-15",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/airbnb-icon-circle.png",
+    alt: "Airbnb",
+    size: "size-12.5",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/huawei-icon-circle.png",
+    alt: "Huawei",
+    size: "size-15",
+  },
+  {
+    image:
+      "https://cdn.shadcnstudio.com/ss-assets/brand-logo/dropbox-icon-circle.png",
+    alt: "Dropbox",
+    size: "size-15",
+  },
 ];
 
 export function LogoCloud({ logos = defaultLogos }: LogoCloudProps = {}) {
