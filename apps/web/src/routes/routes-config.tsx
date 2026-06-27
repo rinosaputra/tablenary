@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router";
 import NotFoundPage from "./not-found";
+import { paths } from "./route-definitions";
 
 // === ROUTES ===
 export const router = createBrowserRouter([
+  // --- PUBLIC ---
   {
-    path: "/",
+    path: paths.public.$path(),
     lazy: async () => ({
       Component: (await import("@/shared/layout/public/public-layout"))
         .PublicLayout,
@@ -18,33 +20,56 @@ export const router = createBrowserRouter([
             .default,
         }),
       },
+      {
+        path: paths.public.$.login.$path({ relative: true }),
+        lazy: async () => ({
+          Component: (await import("@/modules/auth/pages/login-page")).default,
+        }),
+      },
+      {
+        path: paths.public.$.register.$path({ relative: true }),
+        lazy: async () => ({
+          Component: (await import("@/modules/auth/pages/register-page"))
+            .default,
+        }),
+      },
     ],
   },
 
-  // --- AUTHED ---
+  // --- APP (authed) ---
   {
+    path: paths.app.$path(),
     lazy: async () => ({
       Component: (await import("@/shared/layout/app/app-layout")).default,
     }),
-    errorElement: <NotFoundPage />,
-    // children: [
-    // {
-    //   path: "login",
-    //   lazy: () => import("@/modules/auth/pages/login-page"),
-    // },
-    // {
-    //   path: "register",
-    //   lazy: () => import("@/modules/auth/pages/register-page"),
-    // },
-    // ],
-  },
-
-  // --- APP LAYOUT ---
-  {
-    lazy: async () => ({
-      Component: (await import("@/shared/layout/app/app-layout")).default,
-    }),
-    children: [],
+    children: [
+      {
+        index: true,
+        lazy: async () => ({
+          Component: (await import("@/modules/landing/pages/index-page"))
+            .default,
+        }),
+      },
+      {
+        path: paths.app.$.settings.$path({ relative: true }),
+        children: [
+          {
+            index: true,
+            lazy: async () => ({
+              Component: (await import("@/modules/landing/pages/index-page"))
+                .default,
+            }),
+          },
+          {
+            path: paths.app.$.settings.$.profile.$path({ relative: true }),
+            lazy: async () => ({
+              Component: (await import("@/modules/landing/pages/index-page"))
+                .default,
+            }),
+          },
+        ],
+      },
+    ],
   },
 
   // --- 404 ---

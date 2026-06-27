@@ -15,11 +15,12 @@ import { TablenaryLogo } from "@/shared/ui/tablenary-logo";
 
 import type { PublicHeaderNavProps } from "./types";
 import { cn } from "@/shared/lib/utils";
+import { paths } from "@/routes/route-definitions";
 
 export function PublicHeader({
   navigation,
-  logoHref = "/",
-  loginHref = "/login",
+  logoHref = paths.public.$.index.$buildPath(),
+  loginHref = paths.public.$.login.$buildPath(),
   className,
 }: PublicHeaderNavProps) {
   return (

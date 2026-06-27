@@ -14,6 +14,7 @@ import {
   FieldSeparator,
 } from "@/shared/ui/field";
 import { Input } from "@/shared/ui/input";
+import { paths } from "@/routes/route-definitions";
 
 export function RegisterForm({
   className,
@@ -98,7 +99,7 @@ export function RegisterForm({
               </Field>
               <FieldDescription className="text-center">
                 Already have an account?{" "}
-                <Link to="#" className="text-blue-600 hover:underline">
+                <Link to={paths.public.$.login.$buildPath()} className="text-blue-600 hover:underline">
                   Sign in
                 </Link>
               </FieldDescription>

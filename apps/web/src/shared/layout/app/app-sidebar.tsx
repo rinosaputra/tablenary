@@ -18,6 +18,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/shared/ui/sidebar";
+import { paths } from "@/routes/route-definitions";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -28,7 +29,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<Link to="#" />}>
+            <SidebarMenuButton size="lg" render={<Link to={paths.app.$.index.$buildPath()} />}>
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                 <Command className="size-4" />
               </div>

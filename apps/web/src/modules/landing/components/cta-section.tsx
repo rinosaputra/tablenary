@@ -2,6 +2,7 @@ import { Link } from "react-router";
 
 import { Card, CardContent } from "@/shared/ui/card";
 import { Button } from "@/shared/ui/button";
+import { paths } from "@/routes/route-definitions";
 
 /**
  * CTASection — adapted from shadcn-studio/blocks/cta-section-01.
@@ -26,10 +27,10 @@ export function CTASection() {
             </div>
             <div className="flex flex-wrap items-center gap-4 max-md:w-full max-md:flex-col md:justify-end">
               <Button size="lg" variant="default" className="min-w-45" asChild>
-                <Link to="/register">Mulai Gratis</Link>
+                <Link to={paths.public.$.register.$buildPath()}>Mulai Gratis</Link>
               </Button>
               <Button size="lg" variant="outline" className="min-w-45" asChild>
-                <Link to="/login">Masuk</Link>
+                <Link to={paths.public.$.login.$buildPath()}>Masuk</Link>
               </Button>
             </div>
           </CardContent>

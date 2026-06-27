@@ -71,6 +71,9 @@ importers:
       react-router:
         specifier: ^8.0.1
         version: 8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react-router-typesafe-routes:
+        specifier: ^2.2.1
+        version: 2.2.1(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(zod@3.25.76)
       recharts:
         specifier: 3.8.0
         version: 3.8.0(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(redux@5.0.1)
@@ -2307,6 +2310,20 @@ packages:
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
+
+  react-router-typesafe-routes@2.2.1:
+    resolution: {integrity: sha512-warJRPEQ5w6H4eELPLot3HLHSEm1gjoldHjebUkezfSqr3rB1xuX9BCHmd0eWChu3h8MTKQHMtn8dniyhqquDA==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      react: '>=18'
+      react-router: ^7.0.1
+      yup: ^1.0.0
+      zod: '>=3.0.0'
+    peerDependenciesMeta:
+      yup:
+        optional: true
+      zod:
+        optional: true
 
   react-router@8.0.1:
     resolution: {integrity: sha512-5EL/fANovVUhRK50NLS8RYfX0BxrimoKsHWUPPy8v5UEl8i6vzF7e4POo3u+AhPItDwccUAJjMfIOmydxBJmQw==}
@@ -4778,6 +4795,13 @@ snapshots:
     dependencies:
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
+
+  react-router-typesafe-routes@2.2.1(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(zod@3.25.76):
+    dependencies:
+      react: 19.2.7
+      react-router: 8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+    optionalDependencies:
+      zod: 3.25.76
 
   react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
