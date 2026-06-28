@@ -7,3 +7,6 @@ export type { RatingProps } from "./rating";
 
 export { MotionPreset } from "./motion-preset";
 export type { MotionPresetProps } from "./motion-preset";
+
+export { Marquee } from "./marquee";
+export type { MarqueeProps } from "./marquee";

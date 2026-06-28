@@ -31,6 +31,17 @@ export interface Testimonial {
   rating: number;
 }
 
+export interface TestimonialItem {
+  name: string;
+  handle: string;
+  avatar: string;
+  rating: number;
+  title: string;
+  content: string;
+  platformName: string;
+  platformImage: string;
+}
+
 export interface FAQItem {
   question: string;
   answer: string;
