@@ -1,6 +1,6 @@
 import { cn } from "@/shared/lib/utils";
 
-import type { AuthLayoutProps } from "./types";
+import type { AuthLayoutProps } from "@/auth/types";
 
 export function AuthLayout({ className, children }: AuthLayoutProps) {
   return (

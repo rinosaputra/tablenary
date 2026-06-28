@@ -7,6 +7,7 @@
  *
  * @see ./auth-routes.ts
  */
+import { paths } from "@/routes/route-definitions";
 import type { RouteObject } from "react-router";
 
 export const authRouterChildren: RouteObject[] = [
