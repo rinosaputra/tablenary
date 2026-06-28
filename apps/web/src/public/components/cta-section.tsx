@@ -1,14 +1,15 @@
 import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router";
 
-import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
-import { MotionPreset } from "@/shared/shadcn-studio-ui/motion-preset";
+import { Button } from "@/shared/ui/button";
 import { paths } from "@/routes/route-definitions";
+import { MotionPreset } from "@/shared/shadcn-studio-ui/motion-preset";
 
 /**
  * CTASection — adapted from shadcn-studio/blocks/cta-section-04.
- * Dark card with dashboard image (floating animation) + CTA button.
+ * Dark card CTA with dashboard analytics image (CDN) and MotionPreset animations.
+ * Single CTA button → register route.
  */
 export function CTASection() {
   return (
@@ -16,7 +17,7 @@ export function CTASection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Card className="relative rounded-3xl border-none bg-black py-16 shadow-none">
           <CardContent className="flex items-center gap-16 px-6 sm:max-lg:flex-col md:px-12">
-            {/* Dashboard Image with floating animation */}
+            {/* Dashboard Image */}
             <MotionPreset
               className="relative w-full max-sm:hidden"
               fade
@@ -47,7 +48,7 @@ export function CTASection() {
               />
             </MotionPreset>
 
-            {/* Text + CTA */}
+            {/* Text Content */}
             <div className="space-y-4 xl:justify-self-end">
               <MotionPreset
                 component="h2"
@@ -57,7 +58,7 @@ export function CTASection() {
                 slide={{ direction: "up", offset: 50 }}
                 transition={{ duration: 0.5 }}
               >
-                Mulai kelola data tanpa coding
+                Siap kelola data Anda tanpa coding?
               </MotionPreset>
 
               <MotionPreset
@@ -69,8 +70,9 @@ export function CTASection() {
                 delay={0.3}
                 transition={{ duration: 0.5 }}
               >
-                Bangun tabel, form, chart, dan PDF Anda sendiri dalam hitungan
-                menit — semua offline dan tersimpan aman di IndexedDB.
+                Mulai gratis hari ini. Tanpa kartu kredit. Bangun tabel, form,
+                chart, dan PDF Anda sendiri dalam hitungan menit — semua offline
+                dan tersimpan aman di IndexedDB.
               </MotionPreset>
 
               <MotionPreset
