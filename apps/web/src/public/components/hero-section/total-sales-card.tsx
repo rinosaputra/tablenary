@@ -1,4 +1,4 @@
-import { GlobeIcon, StoreIcon, TrendingUpIcon } from 'lucide-react'
+import { TrendingUpIcon } from 'lucide-react'
 
 import { Bar, ComposedChart, Line, XAxis } from 'recharts'
 
@@ -6,99 +6,12 @@ import { Avatar, AvatarFallback } from '@/shared/ui/avatar'
 import { Badge } from '@/shared/ui/badge'
 import { Button } from '@/shared/ui/button'
 import { Card, CardContent, CardHeader } from '@/shared/ui/card'
-import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/shared/ui/chart'
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/shared/ui/chart'
 import { Separator } from '@/shared/ui/separator'
 
 import { cn } from '@/shared/lib/utils'
 
-const chartData = [
-  {
-    time: '09:00',
-    uv: 88,
-    pv: 88
-  },
-  {
-    time: '10:00',
-    uv: 88,
-    pv: 88
-  },
-  {
-    time: '11:00',
-    uv: 144,
-    pv: 144
-  },
-  {
-    time: '12:00',
-    uv: 144,
-    pv: 144
-  },
-  {
-    time: '13:00',
-    uv: 109,
-    pv: 109
-  },
-  {
-    time: '14:00',
-    uv: 102,
-    pv: 109
-  },
-  {
-    time: '15:00',
-    uv: 62,
-    pv: 62
-  },
-  {
-    time: '16:00',
-    uv: 62,
-    pv: 62
-  },
-  {
-    time: '17:00',
-    uv: 128,
-    pv: 144
-  },
-  {
-    time: '18:00',
-    uv: 144,
-    pv: 144
-  },
-  {
-    time: '19:00',
-    uv: 183,
-    pv: 200
-  },
-  {
-    time: '20:00',
-    uv: 200,
-    pv: 200
-  }
-]
-
-const totalEarningChartConfig = {
-  uv: {
-    label: 'Online Store',
-    color: 'color-mix(in oklab, var(--chart-2) 10%, transparent)'
-  },
-  pv: {
-    label: 'Offline Store',
-    color: 'var(--chart-2)'
-  }
-} satisfies ChartConfig
-
-const data = [
-  {
-    icon: <GlobeIcon className='size-4' />,
-    platform: 'Online Store',
-    sales: '$20k',
-    growth: '+12.6%'
-  },
-  {
-    icon: <StoreIcon className='size-4' />,
-    platform: 'Offline Store',
-    sales: '$20k',
-    growth: '-4.2%'
-  }
-]
+import { totalSalesBreakdown, totalSalesChartData, totalSalesChartConfig } from '../../data/hero'
 
 const TotalSalesCard = ({ className }: { className?: string }) => {
   return (
@@ -120,7 +33,7 @@ const TotalSalesCard = ({ className }: { className?: string }) => {
 
         <div className='flex items-center gap-2'>
           <span className='text-2xl font-semibold'>$2,150.00</span>
-          <Badge className='bg-primary/10 [a&]:hover:bg-primary/5 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40 text-primary rounded-sm focus-visible:outline-none'>
+          <Badge className='bg-primary/10 [a&]:hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40 rounded-sm focus-visible:ring-offset-0'>
             +5%
           </Badge>
         </div>
@@ -129,7 +42,7 @@ const TotalSalesCard = ({ className }: { className?: string }) => {
         <Separator />
 
         <div className='space-y-1'>
-          {data.map((item, index) => (
+          {totalSalesBreakdown.map((item, index) => (
             <div key={index} className='flex items-center justify-between gap-2 py-2'>
               <div className='text-muted-foreground flex items-center gap-2'>
                 {item.icon}
@@ -146,8 +59,8 @@ const TotalSalesCard = ({ className }: { className?: string }) => {
 
         <Separator />
 
-        <ChartContainer config={totalEarningChartConfig} className='h-40 w-full'>
-          <ComposedChart data={chartData} margin={{ top: 4, right: 6 }}>
+        <ChartContainer config={totalSalesChartConfig} className='h-40 w-full'>
+          <ComposedChart data={totalSalesChartData} margin={{ top: 4, right: 6 }}>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <XAxis
               dataKey='time'

@@ -3,6 +3,8 @@
  */
 
 import type { AvatarItem } from '../types';
+import type { ChartConfig } from '@/shared/ui/chart';
+import { GlobeIcon, StoreIcon } from 'lucide-react';
 
 /** Words rotated by WordRotate in hero section. */
 export const heroWords = ['Sales', 'Growth', 'Business'];
@@ -46,5 +48,52 @@ export const brandLogos = [
     src: 'https://cdn.shadcnstudio.com/ss-assets/brand-logo/mercedes-benz-logo.png',
     alt: 'Mercedes Benz',
     className: 'h-7.5 w-auto shrink-0 object-contain opacity-60 invert dark:invert-0',
+  },
+];
+
+/**
+ * Chart data for the total sales card chart
+ * (time, online store visits, offline store visits).
+ */
+export const totalSalesChartData = [
+  { time: '09:00', uv: 88, pv: 88 },
+  { time: '10:00', uv: 88, pv: 88 },
+  { time: '11:00', uv: 144, pv: 144 },
+  { time: '12:00', uv: 144, pv: 144 },
+  { time: '13:00', uv: 109, pv: 109 },
+  { time: '14:00', uv: 102, pv: 109 },
+  { time: '15:00', uv: 62, pv: 62 },
+  { time: '16:00', uv: 62, pv: 62 },
+  { time: '17:00', uv: 128, pv: 144 },
+  { time: '18:00', uv: 144, pv: 144 },
+  { time: '19:00', uv: 183, pv: 200 },
+  { time: '20:00', uv: 200, pv: 200 },
+];
+
+/** Chart configuration for the total sales card */
+export const totalSalesChartConfig: ChartConfig = {
+  uv: {
+    label: 'Online Store',
+    color: 'color-mix(in oklab, var(--chart-2) 10%, transparent)',
+  },
+  pv: {
+    label: 'Offline Store',
+    color: 'var(--chart-2)',
+  },
+};
+
+/** Sales breakdown rows shown below the chart */
+export const totalSalesBreakdown = [
+  {
+    icon: <GlobeIcon className="size-4" />,
+    platform: 'Online Store',
+    sales: '$20k',
+    growth: '+12.6%',
+  },
+  {
+    icon: <StoreIcon className="size-4" />,
+    platform: 'Offline Store',
+    sales: '$20k',
+    growth: '-4.2%',
   },
 ];
