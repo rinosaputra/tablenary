@@ -1,8 +1,3 @@
-import { PhoneIcon } from "lucide-react";
-
-import { Card, CardContent } from "@/shared/ui/card";
-
-import { PageHeader } from "../components/page-header";
 import { CTASection } from "../components/cta-section";
 import { ContactInfoPanel } from "../components/contact/contact-info-panel";
 
@@ -14,13 +9,7 @@ import { ContactInfoPanel } from "../components/contact/contact-info-panel";
 export function ContactPage() {
   return (
     <>
-      <PageHeader
-        title="Hubungi Kami"
-        subtitle="Ada pertanyaan atau butuh bantuan? Kami senang mendengar dari Anda."
-      />
-
       <ContactInfoPanel />
-
       <CTASection />
     </>
   );
