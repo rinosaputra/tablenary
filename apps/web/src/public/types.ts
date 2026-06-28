@@ -1,4 +1,6 @@
 import type * as React from "react";
+import type { JSX } from "react";
+import type { LucideIcon } from "lucide-react";
 
 /**
  * Shared types for public-facing pages and layout components.
@@ -10,6 +12,43 @@ export interface Feature {
   title: string;
   description: string;
   icon: React.ElementType;
+}
+
+export interface FeatureItem {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  cardBorderColor: string;
+  avatarTextColor: string;
+  avatarBgColor: string;
+}
+
+export interface RealTimeDataItem {
+  title: string;
+  badgeContent: string;
+  value: string;
+  changePercentage: number;
+  svg: JSX.Element;
+}
+
+export interface EarningReportItem {
+  icon: JSX.Element;
+  title: string;
+  department: string;
+  value: string;
+  trend: string;
+  percentage: number;
+}
+
+export interface EarningReportChartItem {
+  day: string;
+  earning: number;
+  fill: string;
+}
+
+export interface SocialMediaItem {
+  image: string;
+  name: string;
 }
 
 export interface PricingPlan {

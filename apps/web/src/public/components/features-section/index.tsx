@@ -1,6 +1,4 @@
-import type { JSX } from 'react'
-
-import { ArrowRightIcon } from 'lucide-react'
+﻿import { ArrowRightIcon } from 'lucide-react'
 
 import StatisticsCard from '@/shared/shadcn-studio-ui/blocks/statistics-card-04'
 import EarningReportCard from '@/shared/shadcn-studio-ui/blocks/chart-earning-report'
@@ -16,138 +14,19 @@ import { MotionPreset } from '@/shared/shadcn-studio-ui/motion-preset'
 import { TablenaryLogo } from '@/shared/ui/tablenary-logo'
 import { cn } from '@/shared/lib/utils'
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
+import {
+  defaultRealTimeData,
+  defaultEarningReportData,
+  defaultEarningReportChartData,
+  defaultSocialMediaData,
+} from '../../data/features'
 
-type RealTimeDataItem = {
-  title: string
-  badgeContent: string
-  value: string
-  changePercentage: number
-  svg: JSX.Element
-}
-
-type EarningReportItem = {
-  icon: JSX.Element
-  title: string
-  department: string
-  value: string
-  trend: string
-  percentage: number
-}
-
-type EarningReportChartItem = {
-  day: string
-  earning: number
-  fill: string
-}
-
-type SocialMediaItem = {
-  image: string
-  name: string
-}
-
-// ---------------------------------------------------------------------------
-// Default Data — Tablenary themed
-// ---------------------------------------------------------------------------
-
-const defaultRealTimeData: RealTimeDataItem[] = [
-  {
-    title: 'Users',
-    badgeContent: 'Last 6 months',
-    value: '8.14k',
-    changePercentage: 18.2,
-    svg: (
-      <svg width='64' height='64' viewBox='0 0 64 64' fill='none'>
-        <circle cx='32' cy='20' r='10' className='fill-primary/20' />
-        <path d='M12 52c0-11.046 8.954-20 20-20s20 8.954 20 20' className='stroke-primary/20' strokeWidth='4' />
-      </svg>
-    ),
-  },
-  {
-    title: 'Sessions',
-    badgeContent: 'Last month',
-    value: '12.2k',
-    changePercentage: -25.5,
-    svg: (
-      <svg width='64' height='64' viewBox='0 0 64 64' fill='none'>
-        <circle cx='32' cy='32' r='24' className='stroke-primary/20' strokeWidth='4' />
-        <path d='M32 16v16l10 10' className='stroke-primary/40' strokeWidth='4' strokeLinecap='round' />
-      </svg>
-    ),
-  },
-  {
-    title: 'Customers',
-    badgeContent: 'Daily customers',
-    value: '42.4k',
-    changePercentage: 9.2,
-    svg: (
-      <svg width='64' height='64' viewBox='0 0 64 64' fill='none'>
-        <rect x='8' y='16' width='48' height='32' rx='4' className='fill-primary/10 stroke-primary/20' strokeWidth='2' />
-        <circle cx='32' cy='32' r='6' className='fill-primary/30' />
-      </svg>
-    ),
-  },
-  {
-    title: 'Total Orders',
-    badgeContent: 'Last week',
-    value: '42.5k',
-    changePercentage: 10.8,
-    svg: (
-      <svg width='64' height='64' viewBox='0 0 64 64' fill='none'>
-        <path d='M12 20h40l-4 24H16L12 20z' className='fill-primary/10 stroke-primary/20' strokeWidth='2' />
-        <circle cx='24' cy='50' r='4' className='fill-primary/30' />
-        <circle cx='40' cy='50' r='4' className='fill-primary/30' />
-      </svg>
-    ),
-  },
-]
-
-const defaultEarningReportData: EarningReportItem[] = [
-  {
-    icon: <ArrowRightIcon className='size-4' />,
-    title: 'Revenue',
-    department: 'Sales',
-    value: '$1,623',
-    trend: 'up',
-    percentage: 20.3,
-  },
-  {
-    icon: <ArrowRightIcon className='size-4' />,
-    title: 'Income',
-    department: 'Affiliation',
-    value: '$5,600',
-    trend: 'up',
-    percentage: 16.2,
-  },
-  {
-    icon: <ArrowRightIcon className='size-4' />,
-    title: 'Expense',
-    department: 'Marketing',
-    value: '$3,200',
-    trend: 'up',
-    percentage: 10.5,
-  },
-]
-
-const defaultEarningReportChartData: EarningReportChartItem[] = [
-  { day: 'Mon', earning: 48, fill: 'color-mix(in oklab, var(--primary) 10%, transparent)' },
-  { day: 'Tue', earning: 147, fill: 'color-mix(in oklab, var(--primary) 10%, transparent)' },
-  { day: 'Wed', earning: 106, fill: 'color-mix(in oklab, var(--primary) 10%, transparent)' },
-  { day: 'Thu', earning: 180, fill: 'var(--primary)' },
-  { day: 'Fri', earning: 75, fill: 'color-mix(in oklab, var(--primary) 10%, transparent)' },
-  { day: 'Sat', earning: 60, fill: 'color-mix(in oklab, var(--primary) 10%, transparent)' },
-  { day: 'Sun', earning: 128, fill: 'color-mix(in oklab, var(--primary) 10%, transparent)' },
-]
-
-const defaultSocialMediaData: SocialMediaItem[] = [
-  { image: 'https://cdn.shadcnstudio.com/ss-assets/brand-logo/instagram-icon.png', name: 'Instagram' },
-  { image: 'https://cdn.shadcnstudio.com/ss-assets/brand-logo/twitter-icon.png', name: 'Twitter' },
-  { image: 'https://cdn.shadcnstudio.com/ss-assets/brand-logo/facebook-icon.png', name: 'Facebook' },
-  { image: 'https://cdn.shadcnstudio.com/ss-assets/brand-logo/linkdin-icon.png', name: 'LinkedIn' },
-  { image: 'https://cdn.shadcnstudio.com/ss-assets/brand-logo/github-white.png', name: 'Github' },
-]
+import type {
+  RealTimeDataItem,
+  EarningReportItem,
+  EarningReportChartItem,
+  SocialMediaItem,
+} from '../../types'
 
 // ---------------------------------------------------------------------------
 // Props & Component
