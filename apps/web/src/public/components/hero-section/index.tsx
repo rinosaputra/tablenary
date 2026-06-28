@@ -1,37 +1,35 @@
-﻿import { useRef } from 'react'
+﻿import { useRef } from "react";
 
-import { PlayIcon, RocketIcon, TicketCheckIcon } from 'lucide-react'
+import { PlayIcon, RocketIcon, TicketCheckIcon } from "lucide-react";
 
-import HeroSvg from '@/shared/shadcn-studio-ui/hero-svg'
-import CustomersCardSvg from '@/shared/shadcn-studio-ui/customers-card-svg'
+import HeroSvg from "@/shared/shadcn-studio-ui/hero-svg";
+import CustomersCardSvg from "@/shared/shadcn-studio-ui/customers-card-svg";
 
-import { MotionPreset } from '@/shared/shadcn-studio-ui/motion-preset'
-import { WordRotate } from '@/shared/shadcn-studio-ui/word-rotate'
-import { Rating } from '@/shared/shadcn-studio-ui/rating'
-import { Marquee } from '@/shared/shadcn-studio-ui/marquee'
-import { AnimatedBeam } from '@/shared/shadcn-studio-ui/animated-beam'
-import { BorderBeam } from '@/shared/shadcn-studio-ui/border-beam'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar'
+import { MotionPreset } from "@/shared/shadcn-studio-ui/motion-preset";
+import { WordRotate } from "@/shared/shadcn-studio-ui/word-rotate";
+import { Rating } from "@/shared/shadcn-studio-ui/rating";
+import { Marquee } from "@/shared/shadcn-studio-ui/marquee";
+import { AnimatedBeam } from "@/shared/shadcn-studio-ui/animated-beam";
+import { BorderBeam } from "@/shared/shadcn-studio-ui/border-beam";
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
 
-import { Button } from '@/shared/ui/button'
+import { Button } from "@/shared/ui/button";
 
-import StatisticsCard from './statistics-card'
-import RatingsCard from './ratings-card'
-import TotalSalesCard from './total-sales-card'
+import StatisticsCard from "./statistics-card";
+import RatingsCard from "./ratings-card";
+import TotalSalesCard from "./total-sales-card";
 
-import type { HeroSectionProps } from '../../types'
-import { defaultAvatars, heroWords } from '../../data/hero'
+import type { HeroSectionProps } from "../../types";
+import { defaultAvatars, heroWords, brandLogos } from "../../data/hero";
 
-const HeroSection = ({ avatars }: HeroSectionProps) => {
-  const avatarList = avatars ?? defaultAvatars
-
-  const containerRef = useRef<HTMLDivElement>(null)
-  const cardRef1 = useRef<HTMLDivElement>(null)
-  const cardRef2 = useRef<HTMLDivElement>(null)
-  const chartRef = useRef<HTMLDivElement>(null)
-  const span1Ref = useRef<HTMLSpanElement>(null)
-  const span2Ref = useRef<HTMLSpanElement>(null)
-  const span3Ref = useRef<HTMLSpanElement>(null)
+const HeroSection = ({ avatars = defaultAvatars }: HeroSectionProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardRef1 = useRef<HTMLDivElement>(null);
+  const cardRef2 = useRef<HTMLDivElement>(null);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const span1Ref = useRef<HTMLSpanElement>(null);
+  const span2Ref = useRef<HTMLSpanElement>(null);
+  const span3Ref = useRef<HTMLSpanElement>(null);
 
   return (
     <section className="flex-1 overflow-hidden">
@@ -49,12 +47,20 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
                 <span className="bg-primary text-primary-foreground rounded-full px-2 py-0.5 text-xs font-medium">
                   AI-Powered
                 </span>
-                <span className="text-muted-foreground">Solution for client-facing businesses</span>
+                <span className="text-muted-foreground">
+                  Solution for client-facing businesses
+                </span>
               </MotionPreset>
 
-              <MotionPreset fade slide={{ offset: 50 }} blur transition={{ duration: 0.5 }} delay={0.3}>
+              <MotionPreset
+                fade
+                slide={{ offset: 50 }}
+                blur
+                transition={{ duration: 0.5 }}
+                delay={0.3}
+              >
                 <h1 className="inline max-w-3xl text-3xl leading-[1.29167] font-bold sm:text-4xl lg:text-5xl">
-                  Turn customer data into product{' '}
+                  Turn customer data into product{" "}
                   <WordRotate
                     words={heroWords}
                     duration={2000}
@@ -63,10 +69,16 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
                 </h1>
               </MotionPreset>
 
-              <MotionPreset fade slide={{ offset: 50 }} blur transition={{ duration: 0.5 }} delay={0.5}>
+              <MotionPreset
+                fade
+                slide={{ offset: 50 }}
+                blur
+                transition={{ duration: 0.5 }}
+                delay={0.5}
+              >
                 <p className="text-muted-foreground text-xl">
-                  Leverage intelligent analytics to track performance, compare trends, and stay ahead with actionable
-                  business insights
+                  Leverage intelligent analytics to track performance, compare
+                  trends, and stay ahead with actionable business insights
                 </p>
               </MotionPreset>
 
@@ -81,7 +93,7 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
               >
                 <Button
                   size="lg"
-                  className="relative w-fit overflow-hidden rounded-full text-base before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-var before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] has-[>svg]:px-6 dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.2)_50%,transparent_75%,transparent_100%)]"
+                  className="relative w-fit overflow-hidden rounded-full text-base before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] before:bg-size-[250%_250%,100%_100%] before:bg-position-[200%_0,0_0] before:bg-no-var before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-position-[-100%_0,0_0] has-[>svg]:px-6 dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.2)_50%,transparent_75%,transparent_100%)]"
                   render={(props) => <a href="#" {...props} />}
                 >
                   Start 7 Day Free Trial
@@ -108,13 +120,15 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
                 className="mt-4 flex items-center gap-6 max-sm:flex-col max-sm:justify-center max-sm:text-center"
               >
                 <div className="-space-x-2 flex">
-                  {avatarList.map((avatar, index) => (
+                  {avatars.map((avatar, index) => (
                     <Avatar
                       key={index}
                       className="ring-background size-12 ring-2 transition-all duration-300 ease-in-out hover:z-10 hover:-translate-y-1 hover:shadow-md"
                     >
                       <AvatarImage src={avatar.src} alt={avatar.name} />
-                      <AvatarFallback className="text-xs">{avatar.fallback}</AvatarFallback>
+                      <AvatarFallback className="text-xs">
+                        {avatar.fallback}
+                      </AvatarFallback>
                     </Avatar>
                   ))}
                 </div>
@@ -138,7 +152,7 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
               <MotionPreset
                 component="p"
                 fade
-                slide={{ direction: 'down', offset: 50 }}
+                slide={{ direction: "down", offset: 50 }}
                 delay={0.8}
                 transition={{ duration: 0.5 }}
                 className="text-muted-foreground"
@@ -147,51 +161,38 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
               </MotionPreset>
               <MotionPreset
                 fade
-                slide={{ direction: 'down', offset: 50 }}
+                slide={{ direction: "down", offset: 50 }}
                 delay={0.9}
                 transition={{ duration: 0.5 }}
                 className="relative"
               >
-                <div className="from-background pointer-events-none absolute inset-y-0 left-0 z-1 w-15 bg-gradient-to-r via-85% to-transparent" />
-                <div className="from-background pointer-events-none absolute inset-y-0 right-0 z-1 w-15 bg-gradient-to-l via-85% to-transparent" />
-                <Marquee pauseOnHover duration={20} reverse gap={4} className="*:items-center">
-                  <img
-                    src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/um-logo.png"
-                    alt="University of Mississippi"
-                    className="h-7.5 w-auto shrink-0 object-contain opacity-60 invert dark:invert-0"
-                  />
-                  <img
-                    src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/star-helth-logo.png"
-                    alt="Star Health"
-                    className="h-9 w-auto shrink-0 object-contain opacity-60 invert dark:invert-0"
-                  />
-                  <img
-                    src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/dhl-logo.png"
-                    alt="DHL"
-                    className="h-4 w-auto shrink-0 object-contain opacity-60 invert dark:invert-0"
-                  />
-                  <img
-                    src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/sense-arena-logo.png"
-                    alt="Sense Arena"
-                    className="h-11 w-auto shrink-0 object-contain opacity-60 invert dark:invert-0"
-                  />
-                  <img
-                    src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/shemaroo-logo.png"
-                    alt="Shemaroo"
-                    className="h-10 w-auto shrink-0 object-contain opacity-60 invert dark:invert-0"
-                  />
-                  <img
-                    src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/mercedes-benz-logo.png"
-                    alt="Mercedes Benz"
-                    className="h-7.5 w-auto shrink-0 object-contain opacity-60 invert dark:invert-0"
-                  />
+                <div className="from-background pointer-events-none absolute inset-y-0 left-0 z-1 w-15 bg-linear-to-r via-85% to-transparent" />
+                <div className="from-background pointer-events-none absolute inset-y-0 right-0 z-1 w-15 bg-linear-to-l via-85% to-transparent" />
+                <Marquee
+                  pauseOnHover
+                  duration={20}
+                  reverse
+                  gap={4}
+                  className="*:items-center"
+                >
+                  {brandLogos.map((logo, index) => (
+                    <img
+                      key={index}
+                      src={logo.src}
+                      alt={logo.alt}
+                      className={logo.className}
+                    />
+                  ))}
                 </Marquee>
               </MotionPreset>
             </div>
           </div>
 
           {/* Right Column — Cards + AnimatedBeams */}
-          <div ref={containerRef} className="relative flex flex-col items-center justify-center px-8">
+          <div
+            ref={containerRef}
+            className="relative flex flex-col items-center justify-center px-8"
+          >
             <HeroSvg className="absolute -inset-y-9 -z-1 max-md:hidden xl:inset-y-0" />
 
             {/* Top Cards */}
@@ -207,7 +208,12 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
                   className="h-full gap-2 py-3"
                 />
                 <div className="bg-background absolute -inset-2 -z-10 rounded-xl border">
-                  <BorderBeam duration={15} size={60} colorFrom="var(--primary)" colorTo="var(--primary)" />
+                  <BorderBeam
+                    duration={15}
+                    size={60}
+                    colorFrom="var(--primary)"
+                    colorTo="var(--primary)"
+                  />
                 </div>
               </div>
 
@@ -221,7 +227,12 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
                   className="h-full"
                 />
                 <div className="bg-background absolute -inset-2 -z-10 rounded-xl border">
-                  <BorderBeam duration={15} size={60} colorFrom="var(--primary)" colorTo="var(--primary)" />
+                  <BorderBeam
+                    duration={15}
+                    size={60}
+                    colorFrom="var(--primary)"
+                    colorTo="var(--primary)"
+                  />
                 </div>
               </div>
             </div>
@@ -234,11 +245,19 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
             </div>
 
             {/* Bottom Chart Card */}
-            <div ref={chartRef} className="flex w-full items-center justify-center px-2">
+            <div
+              ref={chartRef}
+              className="flex w-full items-center justify-center px-2"
+            >
               <div className="relative w-fit">
                 <TotalSalesCard className="sm:w-full sm:max-w-100" />
                 <div className="bg-background absolute -inset-2 -z-10 rounded-xl border">
-                  <BorderBeam duration={15} size={60} colorFrom="var(--primary)" colorTo="var(--primary)" />
+                  <BorderBeam
+                    duration={15}
+                    size={60}
+                    colorFrom="var(--primary)"
+                    colorTo="var(--primary)"
+                  />
                 </div>
                 <span className="bg-background absolute -top-1.5 left-1/2 size-1.5 -translate-x-1/2" />
               </div>
@@ -293,8 +312,8 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HeroSection
-export { HeroSection }
+export default HeroSection;
+export { HeroSection };
