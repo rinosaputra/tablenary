@@ -32,6 +32,7 @@ function AnimatedBeam(props: AnimatedBeamProps) {
     toRef,
     curvature = 0,
     reverse = false,
+    // eslint-disable-next-line react-hooks/purity
     duration = Math.random() * 3 + 4,
     delay = 0,
     pathColor = 'currentColor',
@@ -89,7 +90,7 @@ function AnimatedBeam(props: AnimatedBeamProps) {
 
     const resizeObserver = new ResizeObserver(entries => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      for (const entry of entries) {
+      for (const _entry of entries) {
         updatePath()
       }
     })
