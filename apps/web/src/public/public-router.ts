@@ -74,13 +74,13 @@ export const publicRouterChildren: RouteObject[] = [
   {
     path: paths.public.$.login.$path({ relative: true }),
     lazy: async () => ({
-      Component: (await import("@/modules/auth/pages/login-page")).default,
+      Component: (await import("@/auth/pages/login-page")).default,
     }),
   },
   {
     path: paths.public.$.register.$path({ relative: true }),
     lazy: async () => ({
-      Component: (await import("@/modules/auth/pages/register-page")).default,
+      Component: (await import("@/auth/pages/register-page")).default,
     }),
   },
 ] as const;
