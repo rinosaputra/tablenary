@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 
 import { PlayIcon, RocketIcon, TicketCheckIcon } from 'lucide-react'
 
@@ -19,27 +19,11 @@ import StatisticsCard from './statistics-card'
 import RatingsCard from './ratings-card'
 import TotalSalesCard from './total-sales-card'
 
-const words = ['Sales', 'Growth', 'Business']
-
-type AvatarItem = {
-  src: string
-  fallback: string
-  name: string
-}
-
-interface HeroSectionProps {
-  avatars?: AvatarItem[]
-}
+import type { HeroSectionProps } from '../../types'
+import { defaultAvatars, heroWords } from '../../data/hero'
 
 const HeroSection = ({ avatars }: HeroSectionProps) => {
-  const defaultAvatars: AvatarItem[] = [
-    { src: '/avatars/u1.png', fallback: 'U1', name: 'User 1' },
-    { src: '/avatars/u2.png', fallback: 'U2', name: 'User 2' },
-    { src: '/avatars/u3.png', fallback: 'U3', name: 'User 3' },
-    { src: '/avatars/u4.png', fallback: 'U4', name: 'User 4' },
-  ]
-
-  const avatarList = avatars || defaultAvatars
+  const avatarList = avatars ?? defaultAvatars
 
   const containerRef = useRef<HTMLDivElement>(null)
   const cardRef1 = useRef<HTMLDivElement>(null)
@@ -72,7 +56,7 @@ const HeroSection = ({ avatars }: HeroSectionProps) => {
                 <h1 className="inline max-w-3xl text-3xl leading-[1.29167] font-bold sm:text-4xl lg:text-5xl">
                   Turn customer data into product{' '}
                   <WordRotate
-                    words={words}
+                    words={heroWords}
                     duration={2000}
                     className="inline-block w-fit overflow-visible py-0"
                   />

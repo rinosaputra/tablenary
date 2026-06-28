@@ -129,3 +129,13 @@ export interface PublicHeaderNavProps extends React.PropsWithChildren {
   loginHref?: string;
   className?: string;
 }
+
+export interface AvatarItem {
+  src: string;
+  fallback: string;
+  name: string;
+}
+
+export interface HeroSectionProps {
+  avatars?: AvatarItem[];
+}
