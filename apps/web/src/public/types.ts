@@ -22,6 +22,19 @@ export interface PricingPlan {
   cta: string;
 }
 
+export interface PricingFeature {
+  key: string;
+  label: string;
+}
+
+export interface PricingComparisonPlan {
+  name: string;
+  price: string;
+  period: string;
+  isPopular?: boolean;
+  features: Record<string, boolean | string>;
+}
+
 export interface Testimonial {
   name: string;
   role: string;

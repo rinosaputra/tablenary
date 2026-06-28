@@ -1,55 +1,91 @@
-import type { PricingPlan } from "../types";
+import type { PricingFeature, PricingComparisonPlan } from "../types";
 
 /**
- * Pricing tiers — Tablenary.
- * Annual-only billing (harga yang ditampilkan adalah harga tahunan per tahun).
- * Free: semua builder kecuali PDF. Pro: semua builder + cloud sync. Team: Pro + real-time collaboration.
+ * Pricing feature rows for table comparison.
+ * Order matters — last row is the CTA row.
  */
-export const pricingData: PricingPlan[] = [
+export const pricingFeatures: PricingFeature[] = [
+  { key: "tableBuilder", label: "Table Builder" },
+  { key: "formBuilder", label: "Form Builder" },
+  { key: "chartBuilder", label: "Chart Builder" },
+  { key: "localData", label: "Offline (IndexedDB)" },
+  { key: "pdfBuilder", label: "PDF Builder" },
+  { key: "cloudSync", label: "Cloud Sync" },
+  { key: "importData", label: "Import Excel / CSV" },
+  { key: "realtimeCollab", label: "Real-time Collaboration" },
+  { key: "adminControls", label: "Admin Controls" },
+  { key: "auditLog", label: "Audit Log" },
+  { key: "prioritySupport", label: "Priority Email Support" },
+  { key: "dedicatedManager", label: "Dedicated Success Manager" },
+  { key: "slaGuarantee", label: "SLA 99.9% Uptime" },
+];
+
+/**
+ * Pricing tiers — Tablenary (Table comparison format).
+ */
+export const pricingPlans: PricingComparisonPlan[] = [
   {
     name: "Free",
-    description: "Untuk individu yang ingin coba-coba tanpa komitmen",
-    monthlyPrice: 0,
-    annualPrice: 0,
-    features: [
-      "Table Builder — kelola data tabular",
-      "Form Builder — input via form",
-      "Chart Builder — visualisasi data",
-      "Semua data tersimpan lokal (IndexedDB)",
-      "Pakai offline tanpa batas",
-      "Komunitas support",
-    ],
-    cta: "Mulai Gratis",
+    price: "Rp0",
+    period: "/tahun",
+    features: {
+      tableBuilder: true,
+      formBuilder: true,
+      chartBuilder: true,
+      localData: true,
+      pdfBuilder: false,
+      cloudSync: false,
+      importData: false,
+      realtimeCollab: false,
+      adminControls: false,
+      auditLog: false,
+      prioritySupport: false,
+      dedicatedManager: false,
+      slaGuarantee: false,
+      cta: "Mulai Gratis",
+    },
   },
   {
     name: "Pro",
-    description: "Untuk profesional yang butuh output PDF dan cloud sync",
-    monthlyPrice: 199_000,
-    annualPrice: 199_000,
-    features: [
-      "Semua fitur Free",
-      "PDF Builder — ekspor Table, Chart, dan Mail Merge",
-      "Cloud sync otomatis antar perangkat",
-      "Import dari Excel / CSV / Google Sheets",
-      "Priority email support",
-      "14 hari masa percobaan gratis",
-    ],
-    popular: true,
-    cta: "Coba Pro Gratis",
+    price: "Rp199.000",
+    period: "/tahun",
+    isPopular: true,
+    features: {
+      tableBuilder: true,
+      formBuilder: true,
+      chartBuilder: true,
+      localData: true,
+      pdfBuilder: true,
+      cloudSync: true,
+      importData: true,
+      realtimeCollab: false,
+      adminControls: false,
+      auditLog: false,
+      prioritySupport: true,
+      dedicatedManager: false,
+      slaGuarantee: false,
+      cta: "Coba Pro Gratis",
+    },
   },
   {
     name: "Team",
-    description: "Untuk tim yang butuh kolaborasi real-time",
-    monthlyPrice: 599_000,
-    annualPrice: 599_000,
-    features: [
-      "Semua fitur Pro",
-      "Real-time collaboration (multi-user)",
-      "Admin controls & role management",
-      "Audit log aktivitas tim",
-      "Dedicated success manager",
-      "SLA guarantee 99.9% uptime",
-    ],
-    cta: "Hubungi Tim Sales",
+    price: "Rp599.000",
+    period: "/tahun",
+    features: {
+      tableBuilder: true,
+      formBuilder: true,
+      chartBuilder: true,
+      localData: true,
+      pdfBuilder: true,
+      cloudSync: true,
+      importData: true,
+      realtimeCollab: true,
+      adminControls: true,
+      auditLog: true,
+      prioritySupport: true,
+      dedicatedManager: true,
+      slaGuarantee: true,
+      cta: "Hubungi Tim Sales",
+    },
   },
 ];
