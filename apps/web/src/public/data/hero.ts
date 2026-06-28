@@ -2,8 +2,7 @@
  * Hero section data — extracted from hero-section/index.tsx.
  */
 
-import type { AvatarItem } from '../types';
-import type { ChartConfig } from '@/shared/ui/chart';
+import type { AvatarItem, BrandLogoItem, TotalSalesChartItem, TotalSalesBreakdownItem } from '../types';
 import { GlobeIcon, StoreIcon } from 'lucide-react';
 
 /** Words rotated by WordRotate in hero section. */
@@ -18,7 +17,7 @@ export const defaultAvatars: AvatarItem[] = [
 ];
 
 /** Brand logos rendered in the Marquee "Trusted by" section. */
-export const brandLogos = [
+export const brandLogos: BrandLogoItem[] = [
   {
     src: 'https://cdn.shadcnstudio.com/ss-assets/brand-logo/um-logo.png',
     alt: 'University of Mississippi',
@@ -55,7 +54,7 @@ export const brandLogos = [
  * Chart data for the total sales card chart
  * (time, online store visits, offline store visits).
  */
-export const totalSalesChartData = [
+export const totalSalesChartData: TotalSalesChartItem[] = [
   { time: '09:00', uv: 88, pv: 88 },
   { time: '10:00', uv: 88, pv: 88 },
   { time: '11:00', uv: 144, pv: 144 },
@@ -71,7 +70,7 @@ export const totalSalesChartData = [
 ];
 
 /** Chart configuration for the total sales card */
-export const totalSalesChartConfig: ChartConfig = {
+export const totalSalesChartConfig = {
   uv: {
     label: 'Online Store',
     color: 'color-mix(in oklab, var(--chart-2) 10%, transparent)',
@@ -82,16 +81,22 @@ export const totalSalesChartConfig: ChartConfig = {
   },
 };
 
+/** Icon components for total sales breakdown rows */
+export const totalSalesIcons = {
+  globe: GlobeIcon,
+  store: StoreIcon,
+} as const;
+
 /** Sales breakdown rows shown below the chart */
-export const totalSalesBreakdown = [
+export const totalSalesBreakdown: TotalSalesBreakdownItem[] = [
   {
-    icon: <GlobeIcon className="size-4" />,
+    icon: 'globe',
     platform: 'Online Store',
     sales: '$20k',
     growth: '+12.6%',
   },
   {
-    icon: <StoreIcon className="size-4" />,
+    icon: 'store',
     platform: 'Offline Store',
     sales: '$20k',
     growth: '-4.2%',

@@ -99,6 +99,27 @@ export interface FAQItem {
   answer: string;
 }
 
+// ── Hero section types ────────────────────────────────────────────────
+
+export interface BrandLogoItem {
+  src: string;
+  alt: string;
+  className: string;
+}
+
+export interface TotalSalesChartItem {
+  time: string;
+  uv: number;
+  pv: number;
+}
+
+export interface TotalSalesBreakdownItem {
+  icon: 'globe' | 'store';
+  platform: string;
+  sales: string;
+  growth: string;
+}
+
 export interface LogoData {
   name: string;
   url: string;

@@ -11,7 +11,12 @@ import { Separator } from '@/shared/ui/separator'
 
 import { cn } from '@/shared/lib/utils'
 
-import { totalSalesBreakdown, totalSalesChartData, totalSalesChartConfig } from '../../data/hero'
+import {
+  totalSalesBreakdown,
+  totalSalesChartData,
+  totalSalesChartConfig,
+  totalSalesIcons,
+} from '../../data/hero'
 
 const TotalSalesCard = ({ className }: { className?: string }) => {
   return (
@@ -42,19 +47,22 @@ const TotalSalesCard = ({ className }: { className?: string }) => {
         <Separator />
 
         <div className='space-y-1'>
-          {totalSalesBreakdown.map((item, index) => (
-            <div key={index} className='flex items-center justify-between gap-2 py-2'>
-              <div className='text-muted-foreground flex items-center gap-2'>
-                {item.icon}
-                <span className='text-sm'>{item.platform}</span>
-              </div>
+          {totalSalesBreakdown.map((item, index) => {
+            const IconComponent = totalSalesIcons[item.icon]
+            return (
+              <div key={index} className='flex items-center justify-between gap-2 py-2'>
+                <div className='text-muted-foreground flex items-center gap-2'>
+                  <IconComponent className='size-4' />
+                  <span className='text-sm'>{item.platform}</span>
+                </div>
 
-              <div className='flex items-center gap-2 text-sm'>
-                <span className='text-muted-foreground'>{item.sales}</span>
-                <span>{item.growth}</span>
+                <div className='flex items-center gap-2 text-sm'>
+                  <span className='text-muted-foreground'>{item.sales}</span>
+                  <span>{item.growth}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         <Separator />
