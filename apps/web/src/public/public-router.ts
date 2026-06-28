@@ -5,6 +5,9 @@
  * remains per-route. Paths are derived from the type-safe definitions
  * in `route-definitions.ts` (re-exported from `./public-routes`).
  *
+ * Auth routes (login/register) live in `@/auth/auth-router.ts`
+ * and are mounted as a sibling public section — no nested layout.
+ *
  * @see ../../routes/route-definitions.ts
  */
 import { paths } from "@/routes/route-definitions";
@@ -69,18 +72,6 @@ export const publicRouterChildren: RouteObject[] = [
     path: paths.public.$.cookies.$path({ relative: true }),
     lazy: async () => ({
       Component: (await import("@/public/pages/cookies-page")).default,
-    }),
-  },
-  {
-    path: paths.public.$.login.$path({ relative: true }),
-    lazy: async () => ({
-      Component: (await import("@/auth/pages/login-page")).default,
-    }),
-  },
-  {
-    path: paths.public.$.register.$path({ relative: true }),
-    lazy: async () => ({
-      Component: (await import("@/auth/pages/register-page")).default,
     }),
   },
 ] as const;

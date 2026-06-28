@@ -31,9 +31,5 @@ export const publicRoutes = route({
     terms: route({ path: "terms" }),
     privacy: route({ path: "privacy" }),
     cookies: route({ path: "cookies" }),
-
-    // Auth
-    login: route({ path: "login" }),
-    register: route({ path: "register" }),
   },
 });
